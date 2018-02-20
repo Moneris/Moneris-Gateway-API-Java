@@ -1,3 +1,13 @@
+Version 1.0.9
+	- Added setConnectTimeout of 20 seconds
+	- Changed setReadTimeout to 35 seconds
+	- Added support to change setReadTimeout in HttpPostRequest
+	- Added support for setRecur in CavvPurchase transaction
+	- Added support for getHostId in Receipt
+
+Version 1.0.8
+	- Added support for setNetwork and setDataType in CavvPurchase for Interac E-commerce
+	
 Version 1.0.7
 	 - Added support for ResForcePostCC transaction
 

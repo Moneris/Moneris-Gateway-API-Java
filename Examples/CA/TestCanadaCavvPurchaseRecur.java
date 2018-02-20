@@ -2,7 +2,7 @@ package Canada;
 
 import JavaAPI.*;
 
-public class TestCanadaCavvPurchase
+public class TestCanadaCavvPurchaseRecur
 {
 	public static void main(String[] args)
 	{
@@ -19,6 +19,21 @@ public class TestCanadaCavvPurchase
 		String processing_country_code = "CA";
 		String crypt_type = "5";
 		boolean status_check = false;
+		
+
+		/************************* Recur Variables **********************************/
+
+		String recur_unit = "month"; //eom = end of month
+		String start_now = "true";
+		String start_date = "2018/02/09";
+		String num_recurs = "12";
+		String period = "1";
+		String recur_amount = "5.00";
+
+		/************************* Recur Object Option1 ******************************/
+
+		Recur recurring_cycle = new Recur(recur_unit, start_now, start_date,
+				num_recurs, period, recur_amount);
 
 		CavvPurchase cavvPurchase = new CavvPurchase();
 		cavvPurchase.setOrderId(order_id);
@@ -29,6 +44,7 @@ public class TestCanadaCavvPurchase
 		cavvPurchase.setCavv(cavv);
 		cavvPurchase.setCryptType(crypt_type); //Mandatory for AMEX only
 		cavvPurchase.setDynamicDescriptor(dynamic_descriptor);
+		cavvPurchase.setRecur(recurring_cycle);
 		//cavvPurchase.setWalletIndicator("APP"); //set only for wallet transactions. e.g APPLE PAY
 		//cavvPurchase.setNetwork("Interac"); //set only for Interac e-commerce
 		//cavvPurchase.setDataType("3DSecure"); //set only for Interac e-commerce

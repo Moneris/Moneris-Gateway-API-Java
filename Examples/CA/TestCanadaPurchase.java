@@ -44,7 +44,6 @@ public class TestCanadaPurchase
 		mpgReq.setProxyPort("proxyPort"); 
 		mpgReq.setProxyUser("proxyUser"); //optional - domainName\User
 		mpgReq.setProxyPassword("proxyPassword"); //optional
-		
 		mpgReq.send();
 
 		try
@@ -68,6 +67,7 @@ public class TestCanadaPurchase
 			System.out.println("Ticket = " + receipt.getTicket());
 			System.out.println("TimedOut = " + receipt.getTimedOut());
 			System.out.println("IsVisaDebit = " + receipt.getIsVisaDebit());
+			System.out.println("HostId = " + receipt.getHostId());
 			System.out.println("MCPAmount = " + receipt.getMCPAmount());
 			System.out.println("MCPCurrencyCode = " + receipt.getMCPCurrencyCode());
 		}
