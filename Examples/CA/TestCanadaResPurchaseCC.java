@@ -10,7 +10,7 @@ public class TestCanadaResPurchaseCC
 		String order_id = "Test"+createDate.getTime();
 		String store_id = "store5";
 		String api_token = "yesguy";
-		String data_key = "ot-APGL4zwRERtVQqeTn7ZwFSGJo";
+		String data_key = "8OOXGiwxgvfbZngigVFeld9d2";
 		String amount = "1.00";
 		String cust_id = "customer1"; //if sent will be submitted, otherwise cust_id from profile will be used
 		String crypt_type = "1";
@@ -26,8 +26,16 @@ public class TestCanadaResPurchaseCC
 		resPurchaseCC.setAmount(amount);
 		resPurchaseCC.setCryptType(crypt_type);
 		//resPurchaseCC.setDynamicDescriptor(descriptor);
-		resPurchaseCC.setExpDate(expdate); //Temp Tokens only
+		//resPurchaseCC.setExpDate(expdate); //Temp Tokens only
 
+		//Mandatory - Credential on File details
+		CofInfo cof = new CofInfo();
+		cof.setPaymentIndicator("U");
+		cof.setPaymentInformation("2");
+		cof.setIssuerId("139X3130ASCXAS9");
+		
+		resPurchaseCC.setCofInfo(cof);
+		
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);
 		mpgReq.setTestMode(true); //false or comment out this line for production transactions
@@ -68,6 +76,7 @@ public class TestCanadaResPurchaseCC
 			System.out.println("Avs Street Number = " + receipt.getResAvsStreetNumber());
 			System.out.println("Avs Street Name = " + receipt.getResAvsStreetName());
 			System.out.println("Avs Zipcode = " + receipt.getResAvsZipcode());
+			System.out.println("IssuerId = " + receipt.getIssuerId());
 		}
 		catch (Exception e)
 		{

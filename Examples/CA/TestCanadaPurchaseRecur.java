@@ -21,7 +21,7 @@ public class TestCanadaPurchaseRecur
 
 		String recur_unit = "month"; //eom = end of month
 		String start_now = "true";
-		String start_date = "2016/07/28";
+		String start_date = "2018/04/01";
 		String num_recurs = "12";
 		String period = "1";
 		String recur_amount = "30.00";
@@ -57,6 +57,14 @@ public class TestCanadaPurchaseRecur
 
 		purchase.setRecur(recurring_cycle);
 
+		//Mandatory on Recurs - Credential on File details
+		CofInfo cof = new CofInfo();
+		cof.setPaymentIndicator("R");
+		cof.setPaymentInformation("2");
+		cof.setIssuerId("139X3130ASCXAS9"); 
+		
+		purchase.setCofInfo(cof);
+		
 		/**************************** Https Post Request ***************************/
 
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
@@ -92,6 +100,7 @@ public class TestCanadaPurchaseRecur
 			System.out.println("TimedOut = " + receipt.getTimedOut());
 			System.out.println("Recur Success = " + receipt.getRecurSuccess());
 			System.out.println("IsVisaDebit = " + receipt.getIsVisaDebit());
+			System.out.println("IssuerId = " + receipt.getIssuerId());
 		}
 		catch (Exception e)
 		{

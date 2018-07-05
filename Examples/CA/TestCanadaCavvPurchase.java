@@ -32,6 +32,14 @@ public class TestCanadaCavvPurchase
 		//cavvPurchase.setWalletIndicator("APP"); //set only for wallet transactions. e.g APPLE PAY
 		//cavvPurchase.setNetwork("Interac"); //set only for Interac e-commerce
 		//cavvPurchase.setDataType("3DSecure"); //set only for Interac e-commerce
+		
+		//optional - Credential on File details
+		CofInfo cof = new CofInfo();
+		cof.setPaymentIndicator("U");
+		cof.setPaymentInformation("2");
+		cof.setIssuerId("139X3130ASCXAS9"); 
+		
+		cavvPurchase.setCofInfo(cof);
 
 		HttpsPostRequest mpgReq = new HttpsPostRequest(); 
 		mpgReq.setProcCountryCode(processing_country_code);
@@ -63,6 +71,7 @@ public class TestCanadaCavvPurchase
 			System.out.println("Ticket = " + receipt.getTicket());
 			System.out.println("TimedOut = " + receipt.getTimedOut());
 			System.out.println("CavvResultCode = " + receipt.getCavvResultCode());
+			System.out.println("IssuerId = " + receipt.getIssuerId());
 		}
 		catch (Exception e)
 		{

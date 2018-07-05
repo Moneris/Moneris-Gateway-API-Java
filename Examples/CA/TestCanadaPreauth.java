@@ -30,6 +30,14 @@ public class TestCanadaPreauth
 		//preauth.setMCPAmount("500"); //penny value amount 1.25 = 125
 		//preauth.setMCPCurrencyCode("840"); //ISO-4217 country currency number
 
+		//optional - Credential on File details
+		CofInfo cof = new CofInfo();
+		cof.setPaymentIndicator("U");
+		cof.setPaymentInformation("2");
+		cof.setIssuerId("139X3130ASCXAS9"); 
+		
+		preauth.setCofInfo(cof);
+		
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);
 		mpgReq.setTestMode(true); //false or comment out this line for production transactions
@@ -64,6 +72,7 @@ public class TestCanadaPreauth
 			//System.out.println("StatusMessage = " + receipt.getStatusMessage());
 			System.out.println("MCPAmount = " + receipt.getMCPAmount());
 			System.out.println("MCPCurrencyCode = " + receipt.getMCPCurrencyCode());
+			System.out.println("IssuerId = " + receipt.getIssuerId());
 		}
 		catch (Exception e)
 		{

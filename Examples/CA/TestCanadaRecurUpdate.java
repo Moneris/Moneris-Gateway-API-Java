@@ -20,6 +20,10 @@ public class TestCanadaRecurUpdate
 		String processing_country_code = "CA";
 		boolean status_check = false;
 
+		//Credential on File details
+		CofInfo cof = new CofInfo();
+		cof.setIssuerId("139X3130ASCXAS9");
+		
 		RecurUpdate recurUpdate = new RecurUpdate();
 		recurUpdate.setOrderId(order_id);
 		recurUpdate.setCustId(cust_id);
@@ -30,6 +34,7 @@ public class TestCanadaRecurUpdate
 		//recurUpdate.setTotalNumRecurs(total_num);
 		//recurUpdate.setHold(hold);
 		//recurUpdate.setTerminate(terminate);
+		recurUpdate.setCofInfo(cof);
 
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);

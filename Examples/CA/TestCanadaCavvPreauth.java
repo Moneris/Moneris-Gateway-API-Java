@@ -31,6 +31,14 @@ public class TestCanadaCavvPreauth
 		cavvPreauth.setDynamicDescriptor(dynamic_descriptor);
 		//cavvPreauth.setWalletIndicator("APP"); //set only for wallet transactions. e.g APPLE PAY
 
+		//optional - Credential on File details
+		CofInfo cof = new CofInfo();
+		cof.setPaymentIndicator("U");
+		cof.setPaymentInformation("2");
+		cof.setIssuerId("139X3130ASCXAS9"); 
+		
+		cavvPreauth.setCofInfo(cof);
+		
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);
 		mpgReq.setTestMode(true); //false or comment out this line for production transactions
@@ -61,6 +69,7 @@ public class TestCanadaCavvPreauth
 			System.out.println("Ticket = " + receipt.getTicket());
 			System.out.println("TimedOut = " + receipt.getTimedOut());
 			System.out.println("CavvResultCode = " + receipt.getCavvResultCode());
+			System.out.println("IssuerId = " + receipt.getIssuerId());
 		}
 		catch (Exception e)
 		{

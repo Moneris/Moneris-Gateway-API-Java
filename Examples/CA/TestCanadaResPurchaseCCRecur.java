@@ -40,6 +40,14 @@ public class TestCanadaResPurchaseCCRecur
 
 		resPurchaseCC.setRecur(recurring_cycle);
 
+		//Mandatory - Credential on File details
+		CofInfo cof = new CofInfo();
+		cof.setPaymentIndicator("R");
+		cof.setPaymentInformation("2");
+		cof.setIssuerId("139X3130ASCXAS9");
+		
+		resPurchaseCC.setCofInfo(cof);
+		
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);
 		mpgReq.setTestMode(true); //false or comment out this line for production transactions
@@ -82,6 +90,7 @@ public class TestCanadaResPurchaseCCRecur
 			System.out.println("Avs Street Number = " + receipt.getResAvsStreetNumber());
 			System.out.println("Avs Street Name = " + receipt.getResAvsStreetName());
 			System.out.println("Avs Zipcode = " + receipt.getResAvsZipcode());
+			System.out.println("IssuerId = " + receipt.getIssuerId());
 		}
 		catch (Exception e)
 		{

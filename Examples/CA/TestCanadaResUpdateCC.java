@@ -24,6 +24,10 @@ public class TestCanadaResUpdateCC
 		avsCheck.setAvsStreetName("Payton Street");
 		avsCheck.setAvsZipCode("M1M1M1");
 
+		//Credential on File details
+		CofInfo cof = new CofInfo();
+		cof.setIssuerId("139X3130ASCXAS9");
+		
 		ResUpdateCC resUpdateCC = new ResUpdateCC();
 		resUpdateCC.setData(data_key);
 		resUpdateCC.setAvsInfo(avsCheck);
@@ -34,6 +38,7 @@ public class TestCanadaResUpdateCC
 		resUpdateCC.setEmail(email);
 		resUpdateCC.setNote(note);
 		resUpdateCC.setCryptType(crypt_type);
+		resUpdateCC.setCofInfo(cof);
 
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);

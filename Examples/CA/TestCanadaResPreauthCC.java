@@ -27,6 +27,14 @@ public class TestCanadaResPreauthCC
 		resPreauthCC.setCryptType(crypt_type);
 		resPreauthCC.setDynamicDescriptor(dynamic_descriptor);
 		//resPreauthCC.setExpDate(expdate);  //Temp Tokens only
+		
+		//Mandatory - Credential on File details
+		CofInfo cof = new CofInfo();
+		cof.setPaymentIndicator("U");
+		cof.setPaymentInformation("2");
+		cof.setIssuerId("139X3130ASCXAS9");
+		
+		resPreauthCC.setCofInfo(cof);
 
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);
@@ -69,6 +77,7 @@ public class TestCanadaResPreauthCC
 			System.out.println("Avs Street Number = " + receipt.getResAvsStreetNumber());
 			System.out.println("Avs Street Name = " + receipt.getResAvsStreetName());
 			System.out.println("Avs Zipcode = " + receipt.getResAvsZipcode());
+			System.out.println("IssuerId = " + receipt.getIssuerId());
 		}
 		catch (Exception e)
 		{

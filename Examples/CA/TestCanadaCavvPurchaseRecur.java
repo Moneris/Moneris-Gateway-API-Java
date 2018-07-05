@@ -49,6 +49,14 @@ public class TestCanadaCavvPurchaseRecur
 		//cavvPurchase.setNetwork("Interac"); //set only for Interac e-commerce
 		//cavvPurchase.setDataType("3DSecure"); //set only for Interac e-commerce
 
+		//Mandatory on Recurs - Credential on File details
+		CofInfo cof = new CofInfo();
+		cof.setPaymentIndicator("R");
+		cof.setPaymentInformation("2");
+		cof.setIssuerId("139X3130ASCXAS9"); 
+		
+		cavvPurchase.setCofInfo(cof);
+		
 		HttpsPostRequest mpgReq = new HttpsPostRequest(); 
 		mpgReq.setProcCountryCode(processing_country_code);
 		mpgReq.setTestMode(true); //false or comment out this line for production transactions
@@ -79,6 +87,7 @@ public class TestCanadaCavvPurchaseRecur
 			System.out.println("Ticket = " + receipt.getTicket());
 			System.out.println("TimedOut = " + receipt.getTimedOut());
 			System.out.println("CavvResultCode = " + receipt.getCavvResultCode());
+			System.out.println("IssuerId = " + receipt.getIssuerId());
 		}
 		catch (Exception e)
 		{

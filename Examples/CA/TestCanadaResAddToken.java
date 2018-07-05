@@ -24,6 +24,10 @@ public class TestCanadaResAddToken
 		avsCheck.setAvsStreetNumber("212");
 		avsCheck.setAvsStreetName("Payton Street");
 		avsCheck.setAvsZipCode("M1M1M1");
+		
+		//Credential on File details
+		CofInfo cof = new CofInfo();
+		cof.setIssuerId("139X3130ASCXAS9");
 
 		ResAddToken resAddToken = new ResAddToken();
 		resAddToken.setDataKey(data_key);
@@ -34,6 +38,7 @@ public class TestCanadaResAddToken
 		resAddToken.setEmail(email);
 		resAddToken.setNote(note);
 		resAddToken.setAvsInfo(avsCheck);
+		resAddToken.setCofInfo(cof);
 		//resAddToken.setDataKeyFormat(data_key_format); //optional
 
 		HttpsPostRequest mpgReq = new HttpsPostRequest();

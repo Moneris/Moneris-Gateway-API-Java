@@ -27,7 +27,7 @@ public class TestCanadaResForcePostCC
 		resForcePostCC.setAuthCode(auth_code);
 		resForcePostCC.setCryptType(crypt_type);
 		resForcePostCC.setDynamicDescriptor(descriptor);
-
+		
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);
 		mpgReq.setTestMode(true); //false or comment out this line for production transactions
@@ -68,6 +68,7 @@ public class TestCanadaResForcePostCC
 			System.out.println("Avs Street Number = " + receipt.getResAvsStreetNumber());
 			System.out.println("Avs Street Name = " + receipt.getResAvsStreetName());
 			System.out.println("Avs Zipcode = " + receipt.getResAvsZipcode());
+			System.out.println("IssuerId = " + receipt.getIssuerId());
 		}
 		catch (Exception e)
 		{

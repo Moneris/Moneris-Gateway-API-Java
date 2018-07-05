@@ -28,8 +28,8 @@ public class TestCanadaForcePost
 		forcepost.setExpdate(expdate);
 		forcepost.setAuthCode(auth_code);
 		forcepost.setCryptType(crypt);
-		forcepost.setDynamicDescriptor(dynamic_descriptor);
-
+		forcepost.setDynamicDescriptor(dynamic_descriptor);		
+		
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);
 		mpgReq.setTestMode(true); //false or comment out this line for production transactions
@@ -61,6 +61,7 @@ public class TestCanadaForcePost
 			System.out.println("TimedOut = " + receipt.getTimedOut());
 			System.out.println("CorporateCard = " + receipt.getCorporateCard());
 			//System.out.println("MessageId = " + receipt.getMessageId());
+			System.out.println("IssuerId = " + receipt.getIssuerId());
 		}
 		catch (Exception e)
 		{

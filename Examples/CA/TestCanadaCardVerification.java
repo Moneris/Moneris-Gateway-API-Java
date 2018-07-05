@@ -32,6 +32,14 @@ public class TestCanadaCardVerification
 		cardVerification.setCryptType(crypt);
 		cardVerification.setAvsInfo(avsCheck);
 		cardVerification.setCvdInfo(cvdCheck);
+		
+		//optional - Credential on File details
+		CofInfo cof = new CofInfo();
+		cof.setPaymentIndicator("U");
+		cof.setPaymentInformation("2");
+		cof.setIssuerId("139X3130ASCXAS9"); 
+		
+		cardVerification.setCofInfo(cof);
 
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);
@@ -63,6 +71,7 @@ public class TestCanadaCardVerification
 			System.out.println("Ticket = " + receipt.getTicket());
 			System.out.println("TimedOut = " + receipt.getTimedOut());
 			System.out.println("IsVisaDebit = " + receipt.getIsVisaDebit());
+			System.out.println("IssuerId = " + receipt.getIssuerId());
 		}
 		catch (Exception e)
 		{

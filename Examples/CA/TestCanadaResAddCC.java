@@ -8,7 +8,7 @@ public class TestCanadaResAddCC
 	{
 		String store_id = "store5";
 		String api_token = "yesguy";
-		String pan = "5454545454545454";
+		String pan = "4242424242424242";
 		String expdate = "1912";
 		String phone = "0000000000";
 		String email = "bob@smith.com";
@@ -35,6 +35,12 @@ public class TestCanadaResAddCC
 		resaddcc.setAvsInfo(avsCheck);
 		//resaddcc.setDataKeyFormat(data_key_format); //optional
 
+		//Mandatory - Credential on File details
+		CofInfo cof = new CofInfo();
+		cof.setIssuerId("139X3130ASCXAS9"); //can be obtained by performing card verification
+		
+		resaddcc.setCofInfo(cof);
+		
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);
 		mpgReq.setTestMode(true); //false or comment out this line for production transactions
@@ -67,6 +73,7 @@ public class TestCanadaResAddCC
 			System.out.println("Avs Street Number = " + receipt.getResAvsStreetNumber());
 			System.out.println("Avs Street Name = " + receipt.getResAvsStreetName());
 			System.out.println("Avs Zipcode = " + receipt.getResAvsZipcode());
+			System.out.println("IssuerId = " + receipt.getIssuerId());
 		}
 		catch (Exception e)
 		{

@@ -1,3 +1,12 @@
+Version 1.0.11:
+	- Added support for Credential on File (CofInfo) for RecurUpdate transaction
+	- Updated ResAddCC, ResUpdateCC, ResAddToken, ResTokenizeCC examples
+	- Removed support for Credential on File (CofInfo) from ForcePost
+	transactions
+
+Version 1.0.10
+	- Added support for Credential on File (CofInfo) for Basic and Vault transactions
+	
 Version 1.0.9
 	- Added setConnectTimeout of 20 seconds
 	- Changed setReadTimeout to 35 seconds

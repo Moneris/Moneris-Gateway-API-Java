@@ -16,8 +16,8 @@ public class TestCanadaResCardVerificationCC
         String crypt_type = "7";
         String processing_country_code = "CA";
         boolean status_check = false;
-
-/********************** Efraud Variables ************************/
+        
+        /********************** Efraud Variables ************************/
 		AvsInfo avs = new AvsInfo ();
 		avs.setAvsStreetName("test ave");
 		avs.setAvsStreetNumber("123");
@@ -25,7 +25,7 @@ public class TestCanadaResCardVerificationCC
 
         CvdInfo cvd = new CvdInfo ("1", "099");
 
-/*********************** Transaction Object *******************************/
+        /*********************** Transaction Object *******************************/
 
         ResCardVerificationCC resCardVerificationCC = new ResCardVerificationCC();
         resCardVerificationCC.setDataKey(data_key);
@@ -35,6 +35,14 @@ public class TestCanadaResCardVerificationCC
         resCardVerificationCC.setCvdInfo(cvd);
 
         //resCardVerificationCC.setExpdate("1412"); //For Temp Tokens only
+        
+		//Mandatory - Credential on File details
+		CofInfo cof = new CofInfo();
+		cof.setPaymentIndicator("U");
+		cof.setPaymentInformation("2");
+		cof.setIssuerId("139X3130ASCXAS9");
+		
+		resCardVerificationCC.setCofInfo(cof);
         
         HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);
@@ -68,6 +76,7 @@ public class TestCanadaResCardVerificationCC
     		System.out.println("TimedOut = " + resreceipt.getTimedOut());
     		System.out.println("ResSuccess = " + resreceipt.getResSuccess());
     		System.out.println("PaymentType = " + resreceipt.getPaymentType() + "\n");
+    		System.out.println("IssuerId = " + resreceipt.getIssuerId());
 
     		//Contents of ResolveData
     		System.out.println("Cust ID = " + resreceipt.getResCustId());
