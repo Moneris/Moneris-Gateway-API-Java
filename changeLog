@@ -1,3 +1,7 @@
+Version 1.0.12:
+	- Added support for setMarketIndicator in Purchase and Preauth
+	- Added support for SetCmId in Preauth, Purchase, CavvPreauth and CavvPurchase
+
 Version 1.0.11:
 	- Added support for Credential on File (CofInfo) for RecurUpdate transaction
 	- Updated ResAddCC, ResUpdateCC, ResAddToken, ResTokenizeCC examples

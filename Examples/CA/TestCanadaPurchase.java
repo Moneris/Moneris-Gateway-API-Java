@@ -38,7 +38,6 @@ public class TestCanadaPurchase
 		
 		purchase.setCofInfo(cof);
 		
-		
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);
 		mpgReq.setTestMode(true); //false or comment out this line for production transactions
