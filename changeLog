@@ -1,3 +1,12 @@
+Version 1.0.15:
+	- Changed to write method to stream xml to fix character encoding issue
+
+Version 1.0.14:
+	- Added support for setMarketIndicator in ResPurchaseCC and ResPreauthCC
+
+Version 1.0.13:
+	- Added support for anc1 in ResTempAdd
+
 Version 1.0.12:
 	- Added support for setMarketIndicator in Purchase and Preauth
 	- Added support for SetCmId in Preauth, Purchase, CavvPreauth and CavvPurchase

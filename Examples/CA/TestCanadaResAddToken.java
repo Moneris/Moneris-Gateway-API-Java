@@ -6,9 +6,9 @@ public class TestCanadaResAddToken
 {
 	public static void main(String[] args)
 	{
-		String store_id = "store1";
+		String store_id = "store5";
 		String api_token = "yesguy";
-		String data_key = "ot-545454ucx87A5454";
+		String data_key = "ot-WrKX3928f50ZS4l1JpAJDS2N4";
 		String expdate = "2001";
 		String phone = "0000000000";
 		String email = "bob@smith.com";

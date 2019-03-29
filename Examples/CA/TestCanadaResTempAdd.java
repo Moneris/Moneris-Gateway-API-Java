@@ -6,7 +6,7 @@ public class TestCanadaResTempAdd
 {
 	public static void main(String[] args)
 	{
-		String store_id = "store1";
+		String store_id = "store5";
 		String api_token = "yesguy";
 		String pan = "5454545454545454";
 		String expdate = "1901"; //YYMM format
