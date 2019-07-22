@@ -2,37 +2,32 @@ package Canada;
 
 import JavaAPI.*;
 
-public class TestCanadaIndependentRefund
+public class TestCanadaMCPPurchaseCorrection
 {
 	public static void main(String[] args)
 	{
-		java.util.Date createDate = new java.util.Date(); 
-		String order_id = "Test"+createDate.getTime();
 		String store_id = "store5";
 		String api_token = "yesguy";
-		String cust_id = "my customer id";
-		String amount = "20.00";
-		String pan = "4242424242424242";
-		String expdate = "1901"; //YYMM
+		String order_id = "Test1538682314339";
+		String txn_number = "696314-0_11";
 		String crypt = "7";
+		String dynamic_descriptor = "123456";
 		String processing_country_code = "CA";
 		boolean status_check = false;
 
-		IndependentRefund indrefund = new IndependentRefund();
-		indrefund.setOrderId(order_id);
-		indrefund.setCustId(cust_id);
-		indrefund.setAmount(amount);
-		indrefund.setPan(pan);
-		indrefund.setExpdate(expdate);
-		indrefund.setCryptType(crypt);
-		indrefund.setDynamicDescriptor("123456");
+		MCPPurchaseCorrection mcpPurchasecorrection = new MCPPurchaseCorrection();
+		mcpPurchasecorrection.setOrderId(order_id);
+		mcpPurchasecorrection.setTxnNumber(txn_number);
+		mcpPurchasecorrection.setCryptType(crypt);
+		mcpPurchasecorrection.setDynamicDescriptor(dynamic_descriptor);
+		mcpPurchasecorrection.setCustId("my customer id");
 
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);
 		mpgReq.setTestMode(true); //false or comment out this line for production transactions
 		mpgReq.setStoreId(store_id);
 		mpgReq.setApiToken(api_token);
-		mpgReq.setTransaction(indrefund);
+		mpgReq.setTransaction(mcpPurchasecorrection);
 		mpgReq.setStatusCheck(status_check);
 		mpgReq.send();
 

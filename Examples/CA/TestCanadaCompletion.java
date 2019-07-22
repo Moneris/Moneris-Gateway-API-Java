@@ -26,11 +26,6 @@ public class TestCanadaCompletion
 		completion.setCustId(cust_id);
 		completion.setDynamicDescriptor(dynamic_descriptor);
 		//completion.setShipIndicator(ship_indicator); //optional
-		
-		//Optional - Set for Multi-Currency only
-		//setCompAmount must be 0.00 when setting multi-currency
-		//completion.setMCPAmount("100"); //penny value amount 1.25 = 125
-		//completion.setMCPCurrencyCode("840"); //ISO-4217 country currency number
 
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);
@@ -62,8 +57,6 @@ public class TestCanadaCompletion
 			System.out.println("Ticket = " + receipt.getTicket());
 			System.out.println("TimedOut = " + receipt.getTimedOut());
 			System.out.println("IsVisaDebit = " + receipt.getIsVisaDebit());
-			System.out.println("MCPAmount = " + receipt.getMCPAmount());
-			System.out.println("MCPCurrencyCode = " + receipt.getMCPCurrencyCode());
 		}
 		catch (Exception e)
 		{

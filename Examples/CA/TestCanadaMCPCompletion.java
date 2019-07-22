@@ -2,37 +2,41 @@ package Canada;
 
 import JavaAPI.*;
 
-public class TestCanadaIndependentRefund
+public class TestCanadaMCPCompletion
 {
 	public static void main(String[] args)
 	{
-		java.util.Date createDate = new java.util.Date(); 
-		String order_id = "Test"+createDate.getTime();
 		String store_id = "store5";
 		String api_token = "yesguy";
-		String cust_id = "my customer id";
-		String amount = "20.00";
-		String pan = "4242424242424242";
-		String expdate = "1901"; //YYMM
+		String order_id = "Test1538681966167";
+		String txn_number = "696294-0_11";
 		String crypt = "7";
+		String cust_id = "my customer id";
+		String dynamic_descriptor = "my descriptor";
+		String ship_indicator = "F" ;
 		String processing_country_code = "CA";
 		boolean status_check = false;
 
-		IndependentRefund indrefund = new IndependentRefund();
-		indrefund.setOrderId(order_id);
-		indrefund.setCustId(cust_id);
-		indrefund.setAmount(amount);
-		indrefund.setPan(pan);
-		indrefund.setExpdate(expdate);
-		indrefund.setCryptType(crypt);
-		indrefund.setDynamicDescriptor("123456");
+		MCPCompletion mcpCompletion = new MCPCompletion();
+		mcpCompletion.setOrderId(order_id);
+		mcpCompletion.setTxnNumber(txn_number);
+		mcpCompletion.setCryptType(crypt);
+		mcpCompletion.setCustId(cust_id);
+		mcpCompletion.setDynamicDescriptor(dynamic_descriptor);
+		//mcpCompletion.setShipIndicator(ship_indicator); //optional
 
+		//MCP Fields
+		mcpCompletion.setMCPVersion("1.0");
+		mcpCompletion.setCardholderAmount("500");
+		mcpCompletion.setCardholderCurrencyCode("840");
+		//mcpCompletion.setMCPRateToken("P1538681661706745"); //optional
+		
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);
 		mpgReq.setTestMode(true); //false or comment out this line for production transactions
 		mpgReq.setStoreId(store_id);
 		mpgReq.setApiToken(api_token);
-		mpgReq.setTransaction(indrefund);
+		mpgReq.setTransaction(mcpCompletion);
 		mpgReq.setStatusCheck(status_check);
 		mpgReq.send();
 
@@ -56,7 +60,15 @@ public class TestCanadaIndependentRefund
 			System.out.println("TransTime = " + receipt.getTransTime());
 			System.out.println("Ticket = " + receipt.getTicket());
 			System.out.println("TimedOut = " + receipt.getTimedOut());
-			System.out.println("IsVisaDebit = " + receipt.getIsVisaDebit());
+			System.out.println("IsVisaDebit = " + receipt.getIsVisaDebit());			
+			
+			System.out.println("MerchantSettlementAmount = " + receipt.getMerchantSettlementAmount());
+			System.out.println("CardholderAmount = " + receipt.getCardholderAmount());
+			System.out.println("CardholderCurrencyCode = " + receipt.getCardholderCurrencyCode());
+			System.out.println("MCPRate = " + receipt.getMCPRate());
+			System.out.println("MCPErrorStatusCode = " + receipt.getMCPErrorStatusCode());
+			System.out.println("MCPErrorMessage = " + receipt.getMCPErrorMessage());
+			System.out.println("HostId = " + receipt.getHostId());
 		}
 		catch (Exception e)
 		{

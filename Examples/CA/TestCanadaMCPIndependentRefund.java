@@ -2,7 +2,7 @@ package Canada;
 
 import JavaAPI.*;
 
-public class TestCanadaIndependentRefund
+public class TestCanadaMCPIndependentRefund
 {
 	public static void main(String[] args)
 	{
@@ -18,21 +18,27 @@ public class TestCanadaIndependentRefund
 		String processing_country_code = "CA";
 		boolean status_check = false;
 
-		IndependentRefund indrefund = new IndependentRefund();
-		indrefund.setOrderId(order_id);
-		indrefund.setCustId(cust_id);
-		indrefund.setAmount(amount);
-		indrefund.setPan(pan);
-		indrefund.setExpdate(expdate);
-		indrefund.setCryptType(crypt);
-		indrefund.setDynamicDescriptor("123456");
+		MCPIndependentRefund mcpIndrefund = new MCPIndependentRefund();
+		mcpIndrefund.setOrderId(order_id);
+		mcpIndrefund.setCustId(cust_id);
+		mcpIndrefund.setAmount(amount);
+		mcpIndrefund.setPan(pan);
+		mcpIndrefund.setExpdate(expdate);
+		mcpIndrefund.setCryptType(crypt);
+		mcpIndrefund.setDynamicDescriptor("123456");
+		
+		//MCP Fields
+		mcpIndrefund.setMCPVersion("1.0");
+		mcpIndrefund.setCardholderAmount("500");
+		mcpIndrefund.setCardholderCurrencyCode("840");
+		mcpIndrefund.setMCPRateToken("R1538679861330690");
 
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);
 		mpgReq.setTestMode(true); //false or comment out this line for production transactions
 		mpgReq.setStoreId(store_id);
 		mpgReq.setApiToken(api_token);
-		mpgReq.setTransaction(indrefund);
+		mpgReq.setTransaction(mcpIndrefund);
 		mpgReq.setStatusCheck(status_check);
 		mpgReq.send();
 
@@ -57,6 +63,14 @@ public class TestCanadaIndependentRefund
 			System.out.println("Ticket = " + receipt.getTicket());
 			System.out.println("TimedOut = " + receipt.getTimedOut());
 			System.out.println("IsVisaDebit = " + receipt.getIsVisaDebit());
+			
+			System.out.println("MerchantSettlementAmount = " + receipt.getMerchantSettlementAmount());
+			System.out.println("CardholderAmount = " + receipt.getCardholderAmount());
+			System.out.println("CardholderCurrencyCode = " + receipt.getCardholderCurrencyCode());
+			System.out.println("MCPRate = " + receipt.getMCPRate());
+			System.out.println("MCPErrorStatusCode = " + receipt.getMCPErrorStatusCode());
+			System.out.println("MCPErrorMessage = " + receipt.getMCPErrorMessage());
+			System.out.println("HostId = " + receipt.getHostId());
 		}
 		catch (Exception e)
 		{

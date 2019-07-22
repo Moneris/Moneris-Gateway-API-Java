@@ -24,11 +24,6 @@ public class TestCanadaRefund
 		refund.setCryptType(crypt);
 		refund.setCustId(custid);
 		refund.setDynamicDescriptor(dynamic_descriptor);
-		
-		//Optional - Set for Multi-Currency only
-		//setAmount must be 0.00 when using multi-currency
-		//refund.setMCPAmount("200"); //penny value amount 1.25 = 125
-		//refund.setMCPCurrencyCode("840"); //ISO-4217 country currency number
 
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);
@@ -59,8 +54,6 @@ public class TestCanadaRefund
 			System.out.println("TransTime = " + receipt.getTransTime());
 			System.out.println("Ticket = " + receipt.getTicket());
 			System.out.println("TimedOut = " + receipt.getTimedOut());
-			System.out.println("MCPAmount = " + receipt.getMCPAmount());
-			System.out.println("MCPCurrencyCode = " + receipt.getMCPCurrencyCode());
 		}
 		catch (Exception e)
 		{

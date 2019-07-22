@@ -21,9 +21,6 @@ public class TestCanadaPurchaseCorrection
 		purchasecorrection.setCryptType(crypt);
 		purchasecorrection.setDynamicDescriptor(dynamic_descriptor);
 		purchasecorrection.setCustId("my customer id");
-		
-		//Optional - Set for Multi-Currency only
-		//purchasecorrection.setMCPCurrencyCode("840"); //ISO-4217 country currency number
 
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);
@@ -55,8 +52,6 @@ public class TestCanadaPurchaseCorrection
 			System.out.println("Ticket = " + receipt.getTicket());
 			System.out.println("TimedOut = " + receipt.getTimedOut());
 			System.out.println("IsVisaDebit = " + receipt.getIsVisaDebit());
-			System.out.println("MCPAmount = " + receipt.getMCPAmount());
-			System.out.println("MCPCurrencyCode = " + receipt.getMCPCurrencyCode());
 		}
 		catch (Exception e)
 		{

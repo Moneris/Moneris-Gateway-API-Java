@@ -72,8 +72,6 @@ public class TestCanadaPurchase
 			System.out.println("TimedOut = " + receipt.getTimedOut());
 			System.out.println("IsVisaDebit = " + receipt.getIsVisaDebit());
 			System.out.println("HostId = " + receipt.getHostId());
-			System.out.println("MCPAmount = " + receipt.getMCPAmount());
-			System.out.println("MCPCurrencyCode = " + receipt.getMCPCurrencyCode());
 			System.out.println("IssuerId = " + receipt.getIssuerId());
 		}
 		catch (Exception e)
