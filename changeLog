@@ -1,3 +1,15 @@
+Version 1.0.20:
+	- Added support for 3DS 2.0 transactions
+	- Added support for 3DS 2.0 methods in Cavv transactions
+
+Version 1.0.19:
+	- Deprecated setData for all vault transactions
+	- Added setDataKey to replace setData method
+	- Updated examples with setDataKey method
+	- Added support for OCTPayment transactions
+	- Added support for GooglePay transactions
+	- Added support for ApplePay transactions
+	
 Version 1.0.18:
 	- Added support for Kount transactions
 

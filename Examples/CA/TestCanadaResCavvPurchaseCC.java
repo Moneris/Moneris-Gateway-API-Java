@@ -20,11 +20,14 @@ public class TestCanadaResCavvPurchaseCC
 
 		ResCavvPurchaseCC resCavvPurchaseCC = new ResCavvPurchaseCC();
 		resCavvPurchaseCC.setOrderId(order_id);
-		resCavvPurchaseCC.setData(data_key);
+		resCavvPurchaseCC.setDataKey(data_key);
 		resCavvPurchaseCC.setCustId(cust_id);
 		resCavvPurchaseCC.setAmount(amount);
 		resCavvPurchaseCC.setCavv(cavv);
 		resCavvPurchaseCC.setExpDate(exp_date);
+
+		resCavvPurchaseCC.setThreeDSVersion("2"); //Mandatory for 3DS Version 2.0+
+		resCavvPurchaseCC.setThreeDSServerTransId("e11d4985-8d25-40ed-99d6-c3803fe5e68f"); //Mandatory for 3DS Version 2.0+ - obtained from MpiCavvLookup or MpiThreeDSAuthentication 
 
 		//Mandatory - Credential on File details
 		CofInfo cof = new CofInfo();
@@ -65,6 +68,7 @@ public class TestCanadaResCavvPurchaseCC
 			System.out.println("PaymentType = " + receipt.getPaymentType());
 			System.out.println("CavvResultCode = " + receipt.getCavvResultCode());
 			System.out.println("IssuerId = " + receipt.getIssuerId());
+			System.out.println("ThreeDSVersion = " + receipt.getThreeDSVersion());
 
 			//ResolveData
 			System.out.println("Cust ID = " + receipt.getResCustId());

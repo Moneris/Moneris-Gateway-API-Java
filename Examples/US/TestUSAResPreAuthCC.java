@@ -27,7 +27,7 @@ public class TestUSAResPreAuthCC
 		ResPreauthCC res_preauth_cc = new ResPreauthCC();
 		res_preauth_cc.setOrderId(order_id);
 		res_preauth_cc.setAmount(amount);
-		res_preauth_cc.setData(data_key);
+		res_preauth_cc.setDataKey(data_key);
 		res_preauth_cc.setCryptType(crypt);		
 		res_preauth_cc.setCustId(cust_id);
 		//usResPreauthCC.setDynamicDescriptor(dynamic_descriptor);

@@ -21,7 +21,7 @@ public class TestUSAResUpdatePinless
 		boolean status_check = false;
 
 		ResUpdatePinless resUpdatePinless = new ResUpdatePinless();
-		resUpdatePinless.setData(data_key);
+		resUpdatePinless.setDataKey(data_key);
 		resUpdatePinless.setCustId(cust_id);
 		resUpdatePinless.setPan(pan);
 		resUpdatePinless.setExpdate(expdate);

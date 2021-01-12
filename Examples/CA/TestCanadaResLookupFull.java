@@ -12,7 +12,8 @@ public class TestCanadaResLookupFull
 		String processing_country_code = "CA";
 		boolean status_check = false;
 
-		ResLookupFull resLookupFull = new ResLookupFull(data_key);
+		ResLookupFull resLookupFull = new ResLookupFull();
+		resLookupFull.setDataKey(data_key);
 
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);

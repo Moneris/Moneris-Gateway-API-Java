@@ -6,7 +6,7 @@ public class TestCanadaResCavvPreauthCC
 {
 	public static void main(String[] args)
 	{
-		String store_id = "store1";
+		String store_id = "store5";
 		String api_token = "yesguy";
 		String data_key = "4INQR1A8ocxD0oafSz50LADXy";
 		java.util.Date createDate = new java.util.Date(); 
@@ -20,11 +20,14 @@ public class TestCanadaResCavvPreauthCC
 
 		ResCavvPreauthCC resCavvPreauthCC = new ResCavvPreauthCC();
 		resCavvPreauthCC.setOrderId(order_id);
-		resCavvPreauthCC.setData(data_key);
+		resCavvPreauthCC.setDataKey(data_key);
 		resCavvPreauthCC.setCustId(cust_id);
 		resCavvPreauthCC.setAmount(amount);
 		resCavvPreauthCC.setCavv(cavv);
 		resCavvPreauthCC.setExpDate(expdate);
+		
+		resCavvPreauthCC.setThreeDSVersion("2"); //Mandatory for 3DS Version 2.0+
+		resCavvPreauthCC.setThreeDSServerTransId("e11d4985-8d25-40ed-99d6-c3803fe5e68f"); //Mandatory for 3DS Version 2.0+ - obtained from MpiCavvLookup or MpiThreeDSAuthentication 
 
 		//Mandatory - Credential on File details
 		CofInfo cof = new CofInfo();
@@ -65,7 +68,8 @@ public class TestCanadaResCavvPreauthCC
 			System.out.println("PaymentType = " + receipt.getPaymentType());
 			System.out.println("CavvResultCode = " + receipt.getCavvResultCode());
 			System.out.println("IssuerId = " + receipt.getIssuerId());
-
+			System.out.println("ThreeDSVersion = " + receipt.getThreeDSVersion());
+			
 			//ResolveData
 			System.out.println("Cust ID = " + receipt.getResCustId());
 			System.out.println("Phone = " + receipt.getResPhone());

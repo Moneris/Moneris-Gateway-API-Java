@@ -19,7 +19,7 @@ public class TestUSAResIndRefundAch
 		resIndRefundAch.setOrderId(order_id);
 		resIndRefundAch.setCustId(cust_id);
 		resIndRefundAch.setAmount(amount);
-		resIndRefundAch.setData(data_key);
+		resIndRefundAch.setDataKey(data_key);
 
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);

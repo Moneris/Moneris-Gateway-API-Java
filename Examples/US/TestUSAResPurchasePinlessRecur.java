@@ -18,7 +18,7 @@ public class TestUSAResPurchasePinlessRecur
 		String processing_country_code = "US";
 
 		ResPurchasePinless resPurchasePinless = new ResPurchasePinless();
-		resPurchasePinless.setData(data_key);
+		resPurchasePinless.setDataKey(data_key);
 		resPurchasePinless.setOrderId(order_id);
 		resPurchasePinless.setCustId(cust_id);
 		resPurchasePinless.setAmount(amount);

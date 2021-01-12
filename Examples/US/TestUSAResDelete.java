@@ -12,7 +12,8 @@ public class TestUSAResDelete
 		String processing_country_code = "US";
 		boolean status_check = false;
 
-		ResDelete resDelete = new ResDelete(data_key);
+		ResDelete resDelete = new ResDelete();
+		resDelete.setDataKey(data_key);
 
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);

@@ -27,7 +27,7 @@ public class TestUSAResAddToken
 		resAddToken.setEmail(email);
 		resAddToken.setNote(note);
 		resAddToken.setAvsInfo(avsCheck);
-		resAddToken.setData(data_key);
+		resAddToken.setDataKey(data_key);
 		resAddToken.setCryptType(crypt_type);
 
 		HttpsPostRequest mpgReq = new HttpsPostRequest();

@@ -22,7 +22,7 @@ public class TestCanadaResIndRefundCC
 		resIndRefundCC.setCustId(cust_id);
 		resIndRefundCC.setAmount(amount);
 		resIndRefundCC.setCryptType(crypt_type);
-		resIndRefundCC.setData(data_key);
+		resIndRefundCC.setDataKey(data_key);
 
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);

@@ -18,7 +18,7 @@ public class TestUSAResPurchaseCCEfraud
 		boolean status_check = false;
 
 		ResPurchaseCC resPurchaseCC = new ResPurchaseCC();
-		resPurchaseCC.setData(data_key);
+		resPurchaseCC.setDataKey(data_key);
 		resPurchaseCC.setOrderId(order_id);
 		resPurchaseCC.setCustId(cust_id);
 		resPurchaseCC.setAmount(amount);

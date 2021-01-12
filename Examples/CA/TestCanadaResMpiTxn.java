@@ -24,7 +24,7 @@ public class TestCanadaResMpiTxn
 		boolean status_check = false;
 
 		ResMpiTxn resMpiTxn = new ResMpiTxn();
-		resMpiTxn.setData(data_key);
+		resMpiTxn.setDataKey(data_key);
 		resMpiTxn.setXid(xid);
 		resMpiTxn.setAmount(amount);
 		resMpiTxn.setMD(MD);

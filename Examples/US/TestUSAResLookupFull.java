@@ -12,7 +12,7 @@ public class TestUSAResLookupFull
 		String processing_country_code = "US";
 
 		ResLookupFull resLookupFull = new ResLookupFull();
-		resLookupFull.setData(data_key);
+		resLookupFull.setDataKey(data_key);
 
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);

@@ -13,7 +13,7 @@ public class TestCanadaResLookupMasked
 		boolean status_check = false;
 
 		ResLookupMasked resLookupMasked = new ResLookupMasked();
-		resLookupMasked.setData(data_key);
+		resLookupMasked.setDataKey(data_key);
 
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);

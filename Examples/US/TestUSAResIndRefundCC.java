@@ -22,7 +22,7 @@ public class TestUSAResIndRefundCC
 		resIndRefundCC.setCustId(cust_id);
 		resIndRefundCC.setAmount(amount);
 		resIndRefundCC.setCryptType(crypt_type);
-		resIndRefundCC.setData(data_key);
+		resIndRefundCC.setDataKey(data_key);
 		resIndRefundCC.setDynamicDescriptor(dynamic_descriptor);
 
 		HttpsPostRequest mpgReq = new HttpsPostRequest();

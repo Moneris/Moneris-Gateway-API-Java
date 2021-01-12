@@ -20,7 +20,7 @@ public class TestCanadaResPreauthCCCustInfo
 		boolean status_check = false;
 
 		ResPreauthCC resPreauthCC = new ResPreauthCC();
-		resPreauthCC.setData(data_key);
+		resPreauthCC.setDataKey(data_key);
 		resPreauthCC.setOrderId(order_id);
 		resPreauthCC.setCustId(cust_id);
 		resPreauthCC.setAmount(amount);

@@ -19,7 +19,7 @@ public class TestUSAResPurchasePinless
 		boolean status_check = false;
 
 		ResPurchasePinless resPurchasePinless = new ResPurchasePinless();
-		resPurchasePinless.setData(data_key);
+		resPurchasePinless.setDataKey(data_key);
 		resPurchasePinless.setOrderId(order_id);
 		resPurchasePinless.setCustId(cust_id);
 		resPurchasePinless.setAmount(amount);

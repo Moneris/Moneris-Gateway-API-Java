@@ -29,7 +29,7 @@ public class TestCanadaResUpdateCC
 		cof.setIssuerId("139X3130ASCXAS9");
 		
 		ResUpdateCC resUpdateCC = new ResUpdateCC();
-		resUpdateCC.setData(data_key);
+		resUpdateCC.setDataKey(data_key);
 		resUpdateCC.setAvsInfo(avsCheck);
 		resUpdateCC.setCustId(cust_id);
 		resUpdateCC.setPan(pan);

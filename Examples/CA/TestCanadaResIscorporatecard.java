@@ -13,7 +13,7 @@ public class TestCanadaResIscorporatecard
 		boolean status_check = false;
 
 		ResIscorporatecard resIscorporatecard = new ResIscorporatecard();
-		resIscorporatecard.setData(data_key);
+		resIscorporatecard.setDataKey(data_key);
 
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);

@@ -33,7 +33,7 @@ public class TestUSAResUpdateCC
 		usResUpdateCC.setEmail(email);
 		usResUpdateCC.setNote(note);
 		usResUpdateCC.setCryptType(crypt_type);
-		usResUpdateCC.setData(data_key);
+		usResUpdateCC.setDataKey(data_key);
 
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);
