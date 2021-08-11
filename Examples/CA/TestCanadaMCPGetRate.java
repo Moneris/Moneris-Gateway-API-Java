@@ -6,8 +6,8 @@ public class TestCanadaMCPGetRate
 {
 	public static void main(String[] args)
 	{
-		String store_id = "store5";
-        String api_token = "yesguy";
+		String store_id = "monca02932";
+        String api_token = "CG8kYzGgzVU5z23irgMx";
         String processing_country_code = "CA";
         
         

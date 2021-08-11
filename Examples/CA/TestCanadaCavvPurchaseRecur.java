@@ -25,7 +25,7 @@ public class TestCanadaCavvPurchaseRecur
 
 		String recur_unit = "month"; //eom = end of month
 		String start_now = "true";
-		String start_date = "2018/02/09";
+		String start_date = "2022/02/09";
 		String num_recurs = "12";
 		String period = "1";
 		String recur_amount = "5.00";
@@ -49,6 +49,10 @@ public class TestCanadaCavvPurchaseRecur
 		//cavvPurchase.setNetwork("Interac"); //set only for Interac e-commerce
 		//cavvPurchase.setDataType("3DSecure"); //set only for Interac e-commerce
 
+		cavvPurchase.setThreeDSVersion("2"); //Mandatory for 3DS Version 2.0+
+		cavvPurchase.setThreeDSServerTransId("e11d4985-8d25-40ed-99d6-c3803fe5e68f"); //Mandatory for 3DS Version 2.0+ - obtained from MpiCavvLookup or MpiThreeDSAuthentication 
+		cavvPurchase.setDsTransId("12345");
+		
 		//Mandatory on Recurs - Credential on File details
 		CofInfo cof = new CofInfo();
 		cof.setPaymentIndicator("R");

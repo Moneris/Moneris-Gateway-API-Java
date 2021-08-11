@@ -8,7 +8,7 @@ public class TestCanadaResPurchaseCCRecur
 	{
 		java.util.Date createDate = new java.util.Date(); 
 		String order_id = "Test"+createDate.getTime();
-		String store_id = "store1";
+		String store_id = "store5";
 		String api_token = "yesguy";
 		String data_key = "eLqsADfwqHDxIpJG9vLnELx01";
 		String amount = "1.00";

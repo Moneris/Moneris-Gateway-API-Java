@@ -37,7 +37,7 @@ public class TestCanadaMCPPurchase
 		mcpPurchase.setMCPVersion("1.0");
 		mcpPurchase.setCardholderAmount("500");
 		mcpPurchase.setCardholderCurrencyCode("840");
-		mcpPurchase.setMCPRateToken("P1538681661706745");
+		mcpPurchase.setMCPRateToken("P1622647021248255");
 		
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);

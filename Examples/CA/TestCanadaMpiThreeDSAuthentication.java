@@ -6,8 +6,8 @@ public class TestCanadaMpiThreeDSAuthentication
 {
 	public static void main(String[] args)
 	{
-		String store_id = "moneris";
-		String api_token = "hurgle";
+		String store_id = "monca02932";
+		String api_token = "CG8kYzGgzVU5z23irgMx";
 		
 		String processing_country_code = "CA";
 
@@ -15,7 +15,7 @@ public class TestCanadaMpiThreeDSAuthentication
         mpiThreeDSAuthentication.setOrderId("Test15978735193");	//must be the same one that was used in MpiCardLookup call
         mpiThreeDSAuthentication.setCardholderName("Moneris Test");
         mpiThreeDSAuthentication.setPan("4740611374762707");
-        //mpiThreeDSAuthentication.setDataKey("8OOXGiwxgvfbZngigVFeld9d2"); //Optional - For Moneris Vault and Hosted Tokenization tokens in place of setPan
+        mpiThreeDSAuthentication.setDataKey("xRl9O4FgrZUYdGkmqHTqiEw97"); //Optional - For Moneris Vault and Hosted Tokenization tokens in place of setPan
         mpiThreeDSAuthentication.setExpdate("2310");
         mpiThreeDSAuthentication.setAmount("1.00");
         mpiThreeDSAuthentication.setThreeDSCompletionInd("Y"); //(Y|N|U) indicates whether 3ds method MpiCardLookup was successfully completed
@@ -71,6 +71,14 @@ public class TestCanadaMpiThreeDSAuthentication
 			System.out.println("ChallengeURL = " + receipt.getMpiChallengeURL());
 			System.out.println("ChallengeData = " + receipt.getMpiChallengeData());
 			System.out.println("ThreeDSServerTransId = " + receipt.getMpiThreeDSServerTransId());
+			
+			//In Frictionless flow, you may receive TransStatus as "Y", 
+		    //in which case you can then proceed directly to Cavv Purchase/Preauth with values below
+		    if(receipt.getMpiTransStatus().equals("Y"))
+		    {
+		    	System.out.println("Cavv = " + receipt.getMpiCavv());
+		    	System.out.println("ECI = " + receipt.getMpiEci());
+		    }
 		}
 		catch (Exception e)
 		{

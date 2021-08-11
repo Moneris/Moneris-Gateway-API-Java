@@ -34,6 +34,7 @@ public class TestCanadaCavvPreauth
 
 		cavvPreauth.setThreeDSVersion("2"); //Mandatory for 3DS Version 2.0+
 		cavvPreauth.setThreeDSServerTransId("e11d4985-8d25-40ed-99d6-c3803fe5e68f"); //Mandatory for 3DS Version 2.0+ - obtained from MpiCavvLookup or MpiThreeDSAuthentication 
+		//cavvPreauth.setDsTransId("12345");//Optional - to be used only if you are using 3rd party 3ds 2.0 service
 		
 		//optional - Credential on File details
 		CofInfo cof = new CofInfo();

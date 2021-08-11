@@ -6,8 +6,8 @@ public class TestCanadaResCavvPreauthCC
 {
 	public static void main(String[] args)
 	{
-		String store_id = "store5";
-		String api_token = "yesguy";
+		String store_id = "store1";
+		String api_token = "yesguy1";
 		String data_key = "4INQR1A8ocxD0oafSz50LADXy";
 		java.util.Date createDate = new java.util.Date(); 
 		String order_id = "Test"+createDate.getTime();
@@ -28,7 +28,8 @@ public class TestCanadaResCavvPreauthCC
 		
 		resCavvPreauthCC.setThreeDSVersion("2"); //Mandatory for 3DS Version 2.0+
 		resCavvPreauthCC.setThreeDSServerTransId("e11d4985-8d25-40ed-99d6-c3803fe5e68f"); //Mandatory for 3DS Version 2.0+ - obtained from MpiCavvLookup or MpiThreeDSAuthentication 
-
+		//resCavvPreauthCC.setDsTransId("12345");//Optional - to be used only if you are using 3rd party 3ds 2.0 service
+		
 		//Mandatory - Credential on File details
 		CofInfo cof = new CofInfo();
 		cof.setPaymentIndicator("U");
