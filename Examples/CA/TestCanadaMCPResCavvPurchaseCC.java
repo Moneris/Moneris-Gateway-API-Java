@@ -6,17 +6,20 @@ public class TestCanadaMCPResCavvPurchaseCC
 {
 	public static void main(String[] args)
 	{
-		String store_id = "monca02932";
-		String api_token = "CG8kYzGgzVU5z23irgMx";
+//		String store_id = "monca02932";
+//		String api_token = "CG8kYzGgzVU5z23irgMx";
+		String store_id = "monca02760";
+        String api_token = "ibnNzGEEphi0wdlivn9l";
 		String data_key = "xRl9O4FgrZUYdGkmqHTqiEw97";
 		java.util.Date createDate = new java.util.Date(); 
 		String order_id = "Test"+createDate.getTime();
 		String amount = "1.00";
 		String cust_id = "customer1"; //if sent will be submitted, otherwise cust_id from profile will be used
-		String cavv = "AAABBJg0VhI0VniQEjRWAAAAAAA";
+		String cavv = "BwABApFSYyd4l2eQQFJjAAAAAAA=";
 		String processing_country_code = "CA";
 		String exp_date = "1901";
 		String crypt_type = "7";
+		String ds_trans_id = "12345";
 		boolean status_check = false;
 
 		MCPResCavvPurchaseCC mcpResCavvPurchaseCC = new MCPResCavvPurchaseCC();
@@ -28,14 +31,19 @@ public class TestCanadaMCPResCavvPurchaseCC
 		mcpResCavvPurchaseCC.setCryptType(crypt_type);
 		mcpResCavvPurchaseCC.setExpDate(exp_date);
 
+		//NT Response Option
+		boolean get_nt_response = true;
+		mcpResCavvPurchaseCC.setGetNtResponse(get_nt_response);
+
 		mcpResCavvPurchaseCC.setThreeDSVersion("2"); //Mandatory for 3DS Version 2.0+
 		mcpResCavvPurchaseCC.setThreeDSServerTransId("e11d4985-8d25-40ed-99d6-c3803fe5e68f"); //Mandatory for 3DS Version 2.0+ - obtained from MpiCavvLookup or MpiThreeDSAuthentication 
-
+		mcpResCavvPurchaseCC.setDsTransId(ds_trans_id);//Optional - to be used only if you are using 3rd party 3ds 2.0 service
+		
 		//MCP Fields
 		mcpResCavvPurchaseCC.setMCPVersion("1.0");
 		mcpResCavvPurchaseCC.setCardholderAmount("500");
 		mcpResCavvPurchaseCC.setCardholderCurrencyCode("840");
-		mcpResCavvPurchaseCC.setMCPRateToken("P1623439175449463");
+		mcpResCavvPurchaseCC.setMCPRateToken("P1637854635947343");
 		
 		//Mandatory - Credential on File details
 		CofInfo cof = new CofInfo();
@@ -97,6 +105,12 @@ public class TestCanadaMCPResCavvPurchaseCC
 			System.out.println("Avs Street Number = " + receipt.getResAvsStreetNumber());
 			System.out.println("Avs Street Name = " + receipt.getResAvsStreetName());
 			System.out.println("Avs Zipcode = " + receipt.getResAvsZipcode());
+
+			if(get_nt_response) {
+				System.out.println("NTResponseCode = " + receipt.getNTResponseCode());
+				System.out.println("NTMessage = " + receipt.getNTMessage());
+				System.out.println("NTUsed = " + receipt.getNTUsed());
+			}
 		}
 		catch (Exception e)
 		{

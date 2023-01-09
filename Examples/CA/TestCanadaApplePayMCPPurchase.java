@@ -1,7 +1,7 @@
 package Canada;
 import JavaAPI.*;
 
-public class TestCanadaApplePayTokenPreauth
+public class TestCanadaApplePayMCPPurchase
 {
 	public static void main(String[] args)
 	{		
@@ -26,25 +26,31 @@ public class TestCanadaApplePayTokenPreauth
 		String processing_country_code = "CA";
 		boolean status_check = false;
 
-		ApplePayTokenPreauth applePayTokenPreauth= new ApplePayTokenPreauth();
-		applePayTokenPreauth.setOrderId(order_id);
-		applePayTokenPreauth.setCustId(cust_id);
-		applePayTokenPreauth.setAmount(amount);
-		applePayTokenPreauth.setDisplayName(display_name);
-		applePayTokenPreauth.setNetwork(network);
-		applePayTokenPreauth.setVersion(version);
-		applePayTokenPreauth.setData(data);
-		applePayTokenPreauth.setSignature(signature);
-		applePayTokenPreauth.setHeader(public_key_hash, ephemeral_public_key, transaction_id);
-		applePayTokenPreauth.setDynamicDescriptor(dynamic_descriptor);
-		//applePayTokenPreauth.setTokenOriginator("test1", "aldjland");
+		ApplePayMCPPurchase applePayMCPPurchase = new ApplePayMCPPurchase();
+		applePayMCPPurchase.setOrderId(order_id);
+		applePayMCPPurchase.setCustId(cust_id);
+		applePayMCPPurchase.setAmount(amount);
+		applePayMCPPurchase.setDisplayName(display_name);
+		applePayMCPPurchase.setNetwork(network);
+		applePayMCPPurchase.setVersion(version);
+		applePayMCPPurchase.setData(data);
+		applePayMCPPurchase.setSignature(signature);
+		applePayMCPPurchase.setHeader(public_key_hash, ephemeral_public_key, transaction_id);
+		applePayMCPPurchase.setDynamicDescriptor(dynamic_descriptor);
+		//applePayMCPPurchase.setTokenOriginator("test1", "aldjland");
+		
+		//MCP Fields
+		applePayMCPPurchase.setMCPVersion("1.0");
+		applePayMCPPurchase.setCardholderAmount("500");
+		applePayMCPPurchase.setCardholderCurrencyCode("840");
+		applePayMCPPurchase.setMCPRateToken("P1645492718628533");
 		
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);
 		mpgReq.setTestMode(true); //false or comment out this line for production transactions
 		mpgReq.setStoreId(store_id);
 		mpgReq.setApiToken(api_token);
-		mpgReq.setTransaction(applePayTokenPreauth);
+		mpgReq.setTransaction(applePayMCPPurchase);
 		mpgReq.setStatusCheck(status_check);
 
 		//Optional - Proxy
@@ -79,6 +85,14 @@ public class TestCanadaApplePayTokenPreauth
 			System.out.println("HostId = " + receipt.getHostId());
 			System.out.println("IssuerId = " + receipt.getIssuerId());
 			System.out.println("SourcePanLast4 = " + receipt.getSourcePanLast4());
+			
+			System.out.println("MerchantSettlementAmount = " + receipt.getMerchantSettlementAmount());
+			System.out.println("CardholderAmount = " + receipt.getCardholderAmount());
+			System.out.println("CardholderCurrencyCode = " + receipt.getCardholderCurrencyCode());
+			System.out.println("MCPRate = " + receipt.getMCPRate());
+			System.out.println("MCPErrorStatusCode = " + receipt.getMCPErrorStatusCode());
+			System.out.println("MCPErrorMessage = " + receipt.getMCPErrorMessage());
+			System.out.println("HostId = " + receipt.getHostId());	
 		}
 		catch (Exception e)
 		{

@@ -17,6 +17,7 @@ public class TestCanadaMCPResCavvPreauthCC
 		String processing_country_code = "CA";
 		String expdate = "1901";
 		String crypt_type = "7";
+		String ds_trans_id = "12345";
 		boolean status_check = false;
 
 		MCPResCavvPreauthCC mcpResCavvPreauthCC = new MCPResCavvPreauthCC();
@@ -27,10 +28,15 @@ public class TestCanadaMCPResCavvPreauthCC
 		mcpResCavvPreauthCC.setCavv(cavv);
 		mcpResCavvPreauthCC.setExpDate(expdate);
 		mcpResCavvPreauthCC.setCryptType(crypt_type);
+
+		//NT Response Option
+		boolean get_nt_response = true;
+		mcpResCavvPreauthCC.setGetNtResponse(get_nt_response);
 		
 		mcpResCavvPreauthCC.setThreeDSVersion("2"); //Mandatory for 3DS Version 2.0+
 		mcpResCavvPreauthCC.setThreeDSServerTransId("e11d4985-8d25-40ed-99d6-c3803fe5e68f"); //Mandatory for 3DS Version 2.0+ - obtained from MpiCavvLookup or MpiThreeDSAuthentication 
-
+		mcpResCavvPreauthCC.setDsTransId(ds_trans_id);//Optional - to be used only if you are using 3rd party 3ds 2.0 service
+		
 		//MCP Fields
 		mcpResCavvPreauthCC.setMCPVersion("1.0");
 		mcpResCavvPreauthCC.setCardholderAmount("500");
@@ -97,6 +103,12 @@ public class TestCanadaMCPResCavvPreauthCC
 			System.out.println("Avs Street Number = " + receipt.getResAvsStreetNumber());
 			System.out.println("Avs Street Name = " + receipt.getResAvsStreetName());
 			System.out.println("Avs Zipcode = " + receipt.getResAvsZipcode());
+
+			if(get_nt_response) {
+				System.out.println("NTResponseCode = " + receipt.getNTResponseCode());
+				System.out.println("NTMessage = " + receipt.getNTMessage());
+				System.out.println("NTUsed = " + receipt.getNTUsed());
+			}
 		}
 		catch (Exception e)
 		{

@@ -57,6 +57,7 @@ public class TestCanadaReauth
 			System.out.println("Ticket = " + receipt.getTicket());
 			System.out.println("TimedOut = " + receipt.getTimedOut());
 			System.out.println("IsVisaDebit = " + receipt.getIsVisaDebit());
+			System.out.println("SourcePanLast4 = " + receipt.getSourcePanLast4());
 		}
 		catch (Exception e)
 		{

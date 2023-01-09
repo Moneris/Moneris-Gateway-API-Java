@@ -6,8 +6,8 @@ public class TestCanadaResGetExpiring
 {
 	public static void main(String[] args)
 	{
-		String store_id = "store1";
-		String api_token = "yesguy";
+		String store_id = "monca02932";
+		String api_token = "CG8kYzGgzVU5z23irgMx";
 		String processing_country_code = "CA";
 		boolean status_check = false;
 

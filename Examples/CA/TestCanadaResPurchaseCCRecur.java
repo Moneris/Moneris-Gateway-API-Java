@@ -10,7 +10,7 @@ public class TestCanadaResPurchaseCCRecur
 		String order_id = "Test"+createDate.getTime();
 		String store_id = "store5";
 		String api_token = "yesguy";
-		String data_key = "eLqsADfwqHDxIpJG9vLnELx01";
+		String data_key = "muW95BX60n4NHOnb7J6b3G8n2";
 		String amount = "1.00";
 		String cust_id = "customer1"; //if sent will be submitted, otherwise cust_id from profile will be used
 		String crypt_type = "2";
@@ -23,6 +23,10 @@ public class TestCanadaResPurchaseCCRecur
 		resPurchaseCC.setCustId(cust_id);
 		resPurchaseCC.setAmount(amount);
 		resPurchaseCC.setCryptType(crypt_type);
+
+		//NT Response Option
+		boolean get_nt_response = true;
+		resPurchaseCC.setGetNtResponse(get_nt_response);
 
 		/************************* Recur Variables **********************************/
 
@@ -39,6 +43,7 @@ public class TestCanadaResPurchaseCCRecur
 				num_recurs, period, recur_amount);
 
 		resPurchaseCC.setRecur(recurring_cycle);
+		
 
 		//Mandatory - Credential on File details
 		CofInfo cof = new CofInfo();
@@ -91,6 +96,12 @@ public class TestCanadaResPurchaseCCRecur
 			System.out.println("Avs Street Name = " + receipt.getResAvsStreetName());
 			System.out.println("Avs Zipcode = " + receipt.getResAvsZipcode());
 			System.out.println("IssuerId = " + receipt.getIssuerId());
+
+			if(get_nt_response) {
+				System.out.println("NTResponseCode = " + receipt.getNTResponseCode());
+				System.out.println("NTMessage = " + receipt.getNTMessage());
+				System.out.println("NTUsed = " + receipt.getNTUsed());
+			}
 		}
 		catch (Exception e)
 		{

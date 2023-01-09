@@ -18,6 +18,7 @@ public class TestCanadaCavvPurchaseRecur
 		String dynamic_descriptor = "123456";
 		String processing_country_code = "CA";
 		String crypt_type = "5";
+		String ds_trans_id = "12345";
 		boolean status_check = false;
 		
 
@@ -51,7 +52,7 @@ public class TestCanadaCavvPurchaseRecur
 
 		cavvPurchase.setThreeDSVersion("2"); //Mandatory for 3DS Version 2.0+
 		cavvPurchase.setThreeDSServerTransId("e11d4985-8d25-40ed-99d6-c3803fe5e68f"); //Mandatory for 3DS Version 2.0+ - obtained from MpiCavvLookup or MpiThreeDSAuthentication 
-		cavvPurchase.setDsTransId("12345");
+		cavvPurchase.setDsTransId(ds_trans_id);
 		
 		//Mandatory on Recurs - Credential on File details
 		CofInfo cof = new CofInfo();

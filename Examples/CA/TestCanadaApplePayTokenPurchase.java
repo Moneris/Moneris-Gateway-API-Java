@@ -78,6 +78,7 @@ public class TestCanadaApplePayTokenPurchase
 			System.out.println("IsVisaDebit = " + receipt.getIsVisaDebit());
 			System.out.println("HostId = " + receipt.getHostId());
 			System.out.println("IssuerId = " + receipt.getIssuerId());
+			System.out.println("SourcePanLast4 = " + receipt.getSourcePanLast4());
 		}
 		catch (Exception e)
 		{

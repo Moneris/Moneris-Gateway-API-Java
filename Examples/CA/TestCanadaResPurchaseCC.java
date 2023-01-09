@@ -8,15 +8,15 @@ public class TestCanadaResPurchaseCC
 	{
 		java.util.Date createDate = new java.util.Date();
 		String order_id = "Test"+createDate.getTime();
-		String store_id = "store5";
-		String api_token = "yesguy";
-		String data_key = "8OOXGiwxgvfbZngigVFeld9d2";
-		String amount = "1.00";
+		String store_id = "monca00597";
+		String api_token = "O27AbCbxQorPggMQe6hU";
+		String data_key = "4HIme0ZGURXE3NRBXHUj6nSc4";
+		String amount = "18.00";
 		String cust_id = "customer1"; //if sent will be submitted, otherwise cust_id from profile will be used
-		String crypt_type = "1";
+		String crypt_type = "7";
 		String descriptor = "my descriptor";
 		String processing_country_code = "CA";
-		String expdate = "1512"; //For Temp Token
+		String expdate = "2301"; //For Temp Token
 		boolean status_check = false;
 
 		ResPurchaseCC resPurchaseCC = new ResPurchaseCC();
@@ -26,16 +26,26 @@ public class TestCanadaResPurchaseCC
 		resPurchaseCC.setAmount(amount);
 		resPurchaseCC.setCryptType(crypt_type);
 		//resPurchaseCC.setDynamicDescriptor(descriptor);
-		//resPurchaseCC.setExpDate(expdate); //Temp Tokens only
+		resPurchaseCC.setExpDate(expdate); //Temp Tokens only
+
+		//NT Response Option
+		boolean get_nt_response = true;
+		resPurchaseCC.setGetNtResponse(get_nt_response);
+
+		//optional - Installment Info
+		// InstallmentInfo installmentInfo = new InstallmentInfo();
+		// installmentInfo.setPlanId("ae859ef1-eb91-b708-8b80-1dd481746401");
+		// installmentInfo.setPlanIdRef("0000000065");
+		// installmentInfo.setTacVersion("2");
+		// resPurchaseCC.setInstallmentInfo(installmentInfo);
 
 		//Mandatory - Credential on File details
 		CofInfo cof = new CofInfo();
-		cof.setPaymentIndicator("U");
-		cof.setPaymentInformation("2");
-		cof.setIssuerId("139X3130ASCXAS9");
-		
+		cof.setPaymentIndicator("C");
+		cof.setPaymentInformation("0");
+		//cof.setIssuerId("139X3130ASCXAS9");
 		resPurchaseCC.setCofInfo(cof);
-		
+
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);
 		mpgReq.setTestMode(true); //false or comment out this line for production transactions
@@ -77,6 +87,23 @@ public class TestCanadaResPurchaseCC
 			System.out.println("Avs Street Name = " + receipt.getResAvsStreetName());
 			System.out.println("Avs Zipcode = " + receipt.getResAvsZipcode());
 			System.out.println("IssuerId = " + receipt.getIssuerId());
+			System.out.println("SourcePanLast4 = " + receipt.getSourcePanLast4());
+			
+			if(get_nt_response) {
+				System.out.println("NTResponseCode = " + receipt.getNTResponseCode());
+				System.out.println("NTMessage = " + receipt.getNTMessage());
+				System.out.println("NTUsed = " + receipt.getNTUsed());
+				System.out.println("NTMaskedToken = " + receipt.getNTMaskedToken());
+			}
+
+			// InstallmentResults installmentResults = receipt.getInstallmentResults();
+
+			// System.out.println("\nPlanId = " + installmentResults.getPlanId());
+			// System.out.println("PlanIDRef = " + installmentResults.getPlanIDRef());
+			// System.out.println("TacVersion = " + installmentResults.getTacVersion());
+			// System.out.println("PlanAcceptanceId = " + installmentResults.getPlanAcceptanceId());
+			// System.out.println("PlanStatus = " + installmentResults.getPlanStatus()); 
+			// System.out.println("PlanResponse = " + installmentResults.getPlanResponse());
 		}
 		catch (Exception e)
 		{

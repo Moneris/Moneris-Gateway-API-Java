@@ -22,6 +22,7 @@ public class TestCanadaPurchaseCorrection
 		purchasecorrection.setDynamicDescriptor(dynamic_descriptor);
 		purchasecorrection.setCustId("my customer id");
 
+
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);
 		mpgReq.setTestMode(true); //false or comment out this line for production transactions
@@ -52,6 +53,15 @@ public class TestCanadaPurchaseCorrection
 			System.out.println("Ticket = " + receipt.getTicket());
 			System.out.println("TimedOut = " + receipt.getTimedOut());
 			System.out.println("IsVisaDebit = " + receipt.getIsVisaDebit());
+
+			// InstallmentResults installmentResults = receipt.getInstallmentResults();
+
+			// System.out.println("\nPlanId = " + installmentResults.getPlanId() +"\n");
+			// System.out.println("PlanIDRef = " + installmentResults.getPlanIDRef());
+			// System.out.println("TacVersion = " + installmentResults.getTacVersion());
+			// System.out.println("PlanAcceptanceId = " + installmentResults.getPlanAcceptanceId());
+			// System.out.println("PlanStatus = " + installmentResults.getPlanStatus()); 
+			// System.out.println("PlanResponse = " + installmentResults.getPlanResponse());
 		}
 		catch (Exception e)
 		{

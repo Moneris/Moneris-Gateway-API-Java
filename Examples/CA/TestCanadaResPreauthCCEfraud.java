@@ -43,6 +43,10 @@ public class TestCanadaResPreauthCCEfraud
 		resPreauthCC.setAvsInfo(avsCheck);
 		resPreauthCC.setCvdInfo(cvdCheck);
 
+		//NT Response Option
+		boolean get_nt_response = true;
+		resPreauthCC.setGetNtResponse(get_nt_response);
+
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);
 		mpgReq.setTestMode(true); //false or comment out this line for production transactions
@@ -85,6 +89,12 @@ public class TestCanadaResPreauthCCEfraud
 			System.out.println("Avs Street Number = " + receipt.getResAvsStreetNumber());
 			System.out.println("Avs Street Name = " + receipt.getResAvsStreetName());
 			System.out.println("Avs Zipcode = " + receipt.getResAvsZipcode());
+
+			if(get_nt_response) {
+				System.out.println("NTResponseCode = " + receipt.getNTResponseCode());
+				System.out.println("NTMessage = " + receipt.getNTMessage());
+				System.out.println("NTUsed = " + receipt.getNTUsed());
+			}
 		}
 		catch (Exception e)
 		{

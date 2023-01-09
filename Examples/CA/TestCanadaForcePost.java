@@ -62,6 +62,7 @@ public class TestCanadaForcePost
 			System.out.println("CorporateCard = " + receipt.getCorporateCard());
 			//System.out.println("MessageId = " + receipt.getMessageId());
 			System.out.println("IssuerId = " + receipt.getIssuerId());
+			System.out.println("SourcePanLast4 = " + receipt.getSourcePanLast4());
 		}
 		catch (Exception e)
 		{

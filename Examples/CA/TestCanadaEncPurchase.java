@@ -56,6 +56,7 @@ public class TestCanadaEncPurchase
 			System.out.println("TimedOut = " + receipt.getTimedOut());
 			System.out.println("CardLevelResult = " + receipt.getCardLevelResult());
 			System.out.println("MaskedPan = " + receipt.getMaskedPan());
+			System.out.println("SourcePanLast4 = " + receipt.getSourcePanLast4());
 		}
 		catch (Exception e)
 		{

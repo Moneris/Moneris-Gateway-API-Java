@@ -6,8 +6,10 @@ public class TestCanadaMCPPreauth
 {
 	public static void main(String[] args)
 	{
-		String store_id = "store5";
-		String api_token = "yesguy";
+//		String store_id = "store5";
+//		String api_token = "yesguy";
+		String store_id = "monca02760";
+        String api_token = "ibnNzGEEphi0wdlivn9l";
 		java.util.Date createDate = new java.util.Date(); 
 		String order_id = "Test"+createDate.getTime();
 		String amount = "5.00";
@@ -72,6 +74,7 @@ public class TestCanadaMCPPreauth
 			//System.out.println("StatusCode = " + receipt.getStatusCode());
 			//System.out.println("StatusMessage = " + receipt.getStatusMessage());
 			System.out.println("IssuerId = " + receipt.getIssuerId());
+			System.out.println("SourcePanLast4 = " + receipt.getSourcePanLast4());
 			
 			System.out.println("MerchantSettlementAmount = " + receipt.getMerchantSettlementAmount());
 			System.out.println("CardholderAmount = " + receipt.getCardholderAmount());

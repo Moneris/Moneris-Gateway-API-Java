@@ -76,6 +76,7 @@ public class TestCanadaPreauthEfraud
 			System.out.println("Cvd Response = " + receipt.getCvdResultCode());
 			System.out.println("ITD Response = " + receipt.getITDResponse());
 			System.out.println("IsVisaDebit = " + receipt.getIsVisaDebit());
+			System.out.println("SourcePanLast4 = " + receipt.getSourcePanLast4());
 		}
 		catch (Exception e)
 		{

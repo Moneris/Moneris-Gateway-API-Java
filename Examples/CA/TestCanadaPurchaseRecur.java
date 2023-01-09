@@ -101,6 +101,7 @@ public class TestCanadaPurchaseRecur
 			System.out.println("Recur Success = " + receipt.getRecurSuccess());
 			System.out.println("IsVisaDebit = " + receipt.getIsVisaDebit());
 			System.out.println("IssuerId = " + receipt.getIssuerId());
+			System.out.println("SourcePanLast4 = " + receipt.getSourcePanLast4());
 		}
 		catch (Exception e)
 		{

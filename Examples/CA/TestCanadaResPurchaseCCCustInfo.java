@@ -12,7 +12,7 @@ public class TestCanadaResPurchaseCCCustInfo
 		String order_id = "Test"+createDate.getTime();
 		String store_id = "store1";
 		String api_token = "yesguy";
-		String data_key = "eLqsADfwqHDxIpJG9vLnELx01";
+		String data_key = "muW95BX60n4NHOnb7J6b3G8n2";
 		String amount = "1.00";
 		String cust_id = "customer1"; //if sent will be submitted, otherwise cust_id from profile will be used
 		String crypt_type = "1";
@@ -25,6 +25,10 @@ public class TestCanadaResPurchaseCCCustInfo
 		resPurchaseCC.setCustId(cust_id);
 		resPurchaseCC.setAmount(amount);
 		resPurchaseCC.setCryptType(crypt_type);
+
+		//NT Response Option
+		boolean get_nt_response = true;
+		resPurchaseCC.setGetNtResponse(get_nt_response);
 
 		//CustInfo Variables
 		CustInfo custInfo = new CustInfo();
@@ -175,6 +179,13 @@ public class TestCanadaResPurchaseCCCustInfo
 			System.out.println("Avs Street Number = " + receipt.getResAvsStreetNumber());
 			System.out.println("Avs Street Name = " + receipt.getResAvsStreetName());
 			System.out.println("Avs Zipcode = " + receipt.getResAvsZipcode());
+
+			if(get_nt_response) {
+				System.out.println("NTResponseCode = " + receipt.getNTResponseCode());
+				System.out.println("NTMessage = " + receipt.getNTMessage());
+				System.out.println("NTUsed = " + receipt.getNTUsed());
+			}
+
 		}
 		catch (Exception e)
 		{

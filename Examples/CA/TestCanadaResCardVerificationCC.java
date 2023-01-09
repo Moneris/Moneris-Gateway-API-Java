@@ -8,9 +8,9 @@ public class TestCanadaResCardVerificationCC
   public static void main(String args[]) throws IOException
   {
 
-        String store_id = "store5";
-        String api_token = "yesguy";
-        String data_key = "AoG4zAFzlFFfxcVmzWAZVQuhj";
+	  	String store_id = "monca00597";
+		String api_token = "O27AbCbxQorPggMQe6hU";
+		String data_key = "m5FubAMXr8IK4lC0eTv0c9zA0";
         java.util.Date createDate = new java.util.Date(); 
 		String order_id = "Test"+createDate.getTime();
         String crypt_type = "7";
@@ -34,13 +34,17 @@ public class TestCanadaResCardVerificationCC
         resCardVerificationCC.setAvsInfo(avs);
         resCardVerificationCC.setCvdInfo(cvd);
 
+		//NT Response Option
+		boolean get_nt_response = true;
+		resCardVerificationCC.setGetNtResponse(get_nt_response);
+
         //resCardVerificationCC.setExpdate("1412"); //For Temp Tokens only
         
 		//Mandatory - Credential on File details
 		CofInfo cof = new CofInfo();
-		cof.setPaymentIndicator("U");
+		cof.setPaymentIndicator("Z");
 		cof.setPaymentInformation("2");
-		cof.setIssuerId("139X3130ASCXAS9");
+		//cof.setIssuerId("139X3130ASCXAS9");
 		
 		resCardVerificationCC.setCofInfo(cof);
         
@@ -77,7 +81,9 @@ public class TestCanadaResCardVerificationCC
     		System.out.println("ResSuccess = " + resreceipt.getResSuccess());
     		System.out.println("PaymentType = " + resreceipt.getPaymentType() + "\n");
     		System.out.println("IssuerId = " + resreceipt.getIssuerId());
-
+			System.out.println("SourcePanLast4 = " + resreceipt.getSourcePanLast4());
+			System.out.println();
+			
     		//Contents of ResolveData
     		System.out.println("Cust ID = " + resreceipt.getResCustId());
 			System.out.println("Phone = " + resreceipt.getResPhone());
@@ -90,6 +96,12 @@ public class TestCanadaResCardVerificationCC
 			System.out.println("Avs Street Name = " + resreceipt.getResAvsStreetName());
 			System.out.println("Avs Zipcode = " + resreceipt.getResAvsZipcode());
 
+			if(get_nt_response) {
+				System.out.println("NTResponseCode = " + resreceipt.getNTResponseCode());
+				System.out.println("NTMessage = " + resreceipt.getNTMessage());
+				System.out.println("NTUsed = " + resreceipt.getNTUsed());
+				System.out.println("NTMaskedToken = " + receipt.getNTMaskedToken());
+			}
         }
 	    catch (Exception e)
         {

@@ -59,6 +59,7 @@ public class TestCanadaMCPRefund
 			System.out.println("TransTime = " + receipt.getTransTime());
 			System.out.println("Ticket = " + receipt.getTicket());
 			System.out.println("TimedOut = " + receipt.getTimedOut());
+			System.out.println("SourcePanLast4 = " + receipt.getSourcePanLast4());
 			
 			System.out.println("MerchantSettlementAmount = " + receipt.getMerchantSettlementAmount());
 			System.out.println("CardholderAmount = " + receipt.getCardholderAmount());

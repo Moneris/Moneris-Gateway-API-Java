@@ -7,8 +7,10 @@ public class TestCanadaMCPPurchase
 	{
 		java.util.Date createDate = new java.util.Date(); 
 		String order_id = "Test"+createDate.getTime();
-		String store_id = "store5";
-		String api_token = "yesguy";            
+//		String store_id = "store5";
+//		String api_token = "yesguy";            
+		String store_id = "monca02760";
+        String api_token = "ibnNzGEEphi0wdlivn9l";
 		String amount = "5.00";
 		String pan = "4242424242424242";
 		String expdate = "1901"; //YYMM format
@@ -31,13 +33,13 @@ public class TestCanadaMCPPurchase
 		cof.setPaymentInformation("2");
 		cof.setIssuerId("139X3130ASCXAS9"); 
 		
-		//mcpPurchase.setCofInfo(cof);
+		mcpPurchase.setCofInfo(cof);
 		
 		//MCP Fields
 		mcpPurchase.setMCPVersion("1.0");
 		mcpPurchase.setCardholderAmount("500");
 		mcpPurchase.setCardholderCurrencyCode("840");
-		mcpPurchase.setMCPRateToken("P1622647021248255");
+		mcpPurchase.setMCPRateToken("P1645493618359524");
 		
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);
@@ -78,6 +80,7 @@ public class TestCanadaMCPPurchase
 			System.out.println("IsVisaDebit = " + receipt.getIsVisaDebit());
 			System.out.println("HostId = " + receipt.getHostId());
 			System.out.println("IssuerId = " + receipt.getIssuerId());		
+			System.out.println("SourcePanLast4 = " + receipt.getSourcePanLast4());
 			
 			System.out.println("MerchantSettlementAmount = " + receipt.getMerchantSettlementAmount());
 			System.out.println("CardholderAmount = " + receipt.getCardholderAmount());

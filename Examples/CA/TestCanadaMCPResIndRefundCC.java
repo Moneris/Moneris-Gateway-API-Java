@@ -23,6 +23,10 @@ public class TestCanadaMCPResIndRefundCC
 		mcpResIndRefundCC.setCustId(cust_id);
 		mcpResIndRefundCC.setAmount(amount);
 		mcpResIndRefundCC.setCryptType(crypt_type);
+
+		//NT Response Option
+		boolean get_nt_response = true;
+		mcpResIndRefundCC.setGetNtResponse(get_nt_response);
 		
 		//MCP Fields
 		mcpResIndRefundCC.setMCPVersion("1.0");
@@ -78,6 +82,12 @@ public class TestCanadaMCPResIndRefundCC
 			System.out.println("MCPErrorStatusCode = " + receipt.getMCPErrorStatusCode());
 			System.out.println("MCPErrorMessage = " + receipt.getMCPErrorMessage());
 			System.out.println("HostId = " + receipt.getHostId());	
+
+			if(get_nt_response) {
+				System.out.println("NTResponseCode = " + receipt.getNTResponseCode());
+				System.out.println("NTMessage = " + receipt.getNTMessage());
+				System.out.println("NTUsed = " + receipt.getNTUsed());
+			}
 		}
 		catch (Exception e)
 		{

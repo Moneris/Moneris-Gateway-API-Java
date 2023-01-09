@@ -10,8 +10,8 @@ public class TestCanadaCardVerification
 		String api_token = "yesguy";
 		java.util.Date createDate = new java.util.Date();
 		String order_id = "Test"+createDate.getTime();
-		String pan = "4242424242424242";
-		String expdate = "1901"; //YYMM format
+		String pan = "5204240750750692";
+		String expdate = "2301"; //YYMM
 		String crypt = "7";
 		String processing_country_code = "CA";
 		boolean status_check = false;
@@ -32,6 +32,10 @@ public class TestCanadaCardVerification
 		cardVerification.setCryptType(crypt);
 		cardVerification.setAvsInfo(avsCheck);
 		cardVerification.setCvdInfo(cvdCheck);
+
+		// TrId and TokenCryptogram are optional, refer documentation for more details.
+		cardVerification.setTrId("50189815682");
+		cardVerification.setTokenCryptogram("APmbM/411e0uAAH+s6xMAAADFA==");
 		
 		//optional - Credential on File details
 		CofInfo cof = new CofInfo();
@@ -72,6 +76,7 @@ public class TestCanadaCardVerification
 			System.out.println("TimedOut = " + receipt.getTimedOut());
 			System.out.println("IsVisaDebit = " + receipt.getIsVisaDebit());
 			System.out.println("IssuerId = " + receipt.getIssuerId());
+			System.out.println("SourcePanLast4 = " + receipt.getSourcePanLast4());
 		}
 		catch (Exception e)
 		{

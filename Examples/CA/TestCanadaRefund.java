@@ -25,6 +25,8 @@ public class TestCanadaRefund
 		refund.setCustId(custid);
 		refund.setDynamicDescriptor(dynamic_descriptor);
 
+
+
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);
 		mpgReq.setTestMode(true); //false or comment out this line for production transactions
@@ -54,6 +56,16 @@ public class TestCanadaRefund
 			System.out.println("TransTime = " + receipt.getTransTime());
 			System.out.println("Ticket = " + receipt.getTicket());
 			System.out.println("TimedOut = " + receipt.getTimedOut());
+			System.out.println("SourcePanLast4 = " + receipt.getSourcePanLast4());
+
+			// InstallmentResults installmentResults = receipt.getInstallmentResults();
+
+			// System.out.println("\nPlanId = " + installmentResults.getPlanId() +"\n");
+			// System.out.println("PlanIDRef = " + installmentResults.getPlanIDRef());
+			// System.out.println("TacVersion = " + installmentResults.getTacVersion());
+			// System.out.println("PlanAcceptanceId = " + installmentResults.getPlanAcceptanceId());
+			// System.out.println("PlanStatus = " + installmentResults.getPlanStatus()); 
+			// System.out.println("PlanResponse = " + installmentResults.getPlanResponse());
 		}
 		catch (Exception e)
 		{

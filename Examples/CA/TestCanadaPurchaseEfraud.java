@@ -6,13 +6,13 @@ public class TestCanadaPurchaseEfraud
 {
 	public static void main(String[] args)
 	{
-		String store_id = "store5";
-		String api_token = "yesguy";
+		String store_id = "monca03650";
+		String api_token = "7Yw0MPTlhjBRcZiE6837";
+		String amount = "6000.00";
 		java.util.Date createDate = new java.util.Date();
 		String order_id = "Test"+createDate.getTime();
-		String amount = "10.02";
-		String pan = "4242424242424242";
-		String expiry_date = "1901"; //YYMM format
+		String pan = "4622943127023886";
+		String expdate = "2212"; //YYMM format
 		String crypt = "7";
 		String processing_country_code = "CA";
 		boolean status_check = false;
@@ -33,15 +33,21 @@ public class TestCanadaPurchaseEfraud
 		CvdInfo cvdCheck = new CvdInfo();
 		cvdCheck.setCvdIndicator("1");
 		cvdCheck.setCvdValue("099");
+		
+		InstallmentInfo installmentInfo = new InstallmentInfo();
+		installmentInfo.setPlanId("ae859ef1-eb91-b708-8b80-1dd481746401");
+		installmentInfo.setPlanIdRef("0000000065");
+		installmentInfo.setTacVersion("2");
 
 		Purchase purchase = new Purchase();
 		purchase.setOrderId(order_id);
 		purchase.setAmount(amount);
 		purchase.setPan(pan);
-		purchase.setExpdate(expiry_date);
+		purchase.setExpdate(expdate);
 		purchase.setCryptType(crypt);
-		purchase.setAvsInfo(avsCheck);
-		purchase.setCvdInfo(cvdCheck);
+//		purchase.setAvsInfo(avsCheck);
+//		purchase.setCvdInfo(cvdCheck);
+		purchase.setInstallmentInfo(installmentInfo);
 
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);
@@ -76,6 +82,16 @@ public class TestCanadaPurchaseEfraud
 			System.out.println("Cvd Response = " + receipt.getCvdResultCode());
 			System.out.println("ITD Response = " + receipt.getITDResponse());
 			System.out.println("IsVisaDebit = " + receipt.getIsVisaDebit());
+			System.out.println("SourcePanLast4 = " + receipt.getSourcePanLast4());
+			
+			InstallmentResults installmentResults = receipt.getInstallmentResults();
+
+			System.out.println("\nPlanId = " + installmentResults.getPlanId() +"\n");
+			System.out.println("PlanIDRef = " + installmentResults.getPlanIDRef());
+			System.out.println("TacVersion = " + installmentResults.getTacVersion());
+			System.out.println("PlanAcceptanceId = " + installmentResults.getPlanAcceptanceId());
+			System.out.println("PlanStatus = " + installmentResults.getPlanStatus()); 
+			System.out.println("PlanResponse = " + installmentResults.getPlanResponse());
 		}
 		catch (Exception e)
 		{

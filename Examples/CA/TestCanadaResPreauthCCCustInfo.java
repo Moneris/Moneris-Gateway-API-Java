@@ -26,6 +26,10 @@ public class TestCanadaResPreauthCCCustInfo
 		resPreauthCC.setAmount(amount);
 		resPreauthCC.setCryptType(crypt_type);
 
+		//NT Response Option
+		boolean get_nt_response = true;
+		resPreauthCC.setGetNtResponse(get_nt_response);
+
 		//CustInfo Variables
 		CustInfo custInfo = new CustInfo();
 
@@ -179,6 +183,12 @@ public class TestCanadaResPreauthCCCustInfo
 			System.out.println("Avs Street Number = " + receipt.getResAvsStreetNumber());
 			System.out.println("Avs Street Name = " + receipt.getResAvsStreetName());
 			System.out.println("Avs Zipcode = " + receipt.getResAvsZipcode());
+
+			if(get_nt_response) {
+				System.out.println("NTResponseCode = " + receipt.getNTResponseCode());
+				System.out.println("NTMessage = " + receipt.getNTMessage());
+				System.out.println("NTUsed = " + receipt.getNTUsed());
+			}
 		}
 		catch (Exception e)
 		{

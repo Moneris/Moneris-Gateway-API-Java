@@ -12,12 +12,13 @@ public class TestCanadaCavvPurchase
 		String order_id = "Test"+createDate.getTime();
 		String cust_id = "CUS887H67";
 		String amount = "10.42";
-		String pan = "4740611374762707";
-		String expdate = "1901"; //YYMM
+		String pan = "5204240750750692";
+		String expdate = "2301"; //YYMM
 		String cavv = "BwABApFSYyd4l2eQQFJjAAAAAAA=";
 		String dynamic_descriptor = "123456";
 		String processing_country_code = "CA";
 		String crypt_type = "5";
+		String ds_trans_id = "12345";
 		boolean status_check = false;
 
 		CavvPurchase cavvPurchase = new CavvPurchase();
@@ -36,8 +37,12 @@ public class TestCanadaCavvPurchase
 		
 		cavvPurchase.setThreeDSVersion("2"); //Mandatory for 3DS Version 2.0+
 		cavvPurchase.setThreeDSServerTransId("e11d4985-8d25-40ed-99d6-c3803fe5e68f"); //Mandatory for 3DS Version 2.0+ - obtained from MpiCavvLookup or MpiThreeDSAuthentication 
-		//cavvPurchase.setDsTransId("12345");//Optional - to be used only if you are using 3rd party 3ds 2.0 service
-		
+		cavvPurchase.setDsTransId(ds_trans_id);//Optional - to be used only if you are using 3rd party 3ds 2.0 service
+
+		// TrId and TokenCryptogram are optional, refer documentation for more details.
+		cavvPurchase.setTrId("50189815682");
+		cavvPurchase.setTokenCryptogram("APmbM/411e0uAAH+s6xMAAADFA==");
+
 		//optional - Credential on File details
 		CofInfo cof = new CofInfo();
 		cof.setPaymentIndicator("U");
@@ -78,6 +83,7 @@ public class TestCanadaCavvPurchase
 			System.out.println("CavvResultCode = " + receipt.getCavvResultCode());
 			System.out.println("IssuerId = " + receipt.getIssuerId());
 			System.out.println("ThreeDSVersion = " + receipt.getThreeDSVersion());
+			System.out.println("SourcePanLast4 = " + receipt.getSourcePanLast4());
 		}
 		catch (Exception e)
 		{
