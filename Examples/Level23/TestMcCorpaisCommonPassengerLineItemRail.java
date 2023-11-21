@@ -1,4 +1,4 @@
-﻿package Level23;
+package Level23;
 import JavaAPI.*;
 
 public class TestMcCorpaisCommonPassengerLineItemRail

@@ -10,9 +10,9 @@ public class TestCanadaInstallmentLookup
 		String order_id = "Test"+createDate.getTime();
 		String store_id = "monca03650";
 		String api_token = "7Yw0MPTlhjBRcZiE6837";
-		String amount = "600.00";
-		String pan = "4761270070000310";
-		String expdate = "2212"; //YYMM format
+		String amount = "1000.00";
+		String pan = "4761270070000328";
+		String expdate = "2512"; //YYMM format
 		
 		InstallmentLookup InstallmentLookup = new InstallmentLookup();
 		InstallmentLookup.setOrderId(order_id);

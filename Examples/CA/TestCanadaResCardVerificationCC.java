@@ -97,10 +97,12 @@ public class TestCanadaResCardVerificationCC
 			System.out.println("Avs Zipcode = " + resreceipt.getResAvsZipcode());
 
 			if(get_nt_response) {
-				System.out.println("NTResponseCode = " + resreceipt.getNTResponseCode());
+				System.out.println("\nNTResponseCode = " + resreceipt.getNTResponseCode());
 				System.out.println("NTMessage = " + resreceipt.getNTMessage());
 				System.out.println("NTUsed = " + resreceipt.getNTUsed());
-				System.out.println("NTMaskedToken = " + receipt.getNTMaskedToken());
+				System.out.println("NTTokenBin = " + resreceipt.getNTTokenBin());
+				System.out.println("NTTokenLast4 = " + resreceipt.getNTTokenLast4());
+				System.out.println("NTTokenExpDate = " + resreceipt.getNTTokenExpDate());
 			}
         }
 	    catch (Exception e)

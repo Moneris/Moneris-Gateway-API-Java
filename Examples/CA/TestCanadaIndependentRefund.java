@@ -8,8 +8,8 @@ public class TestCanadaIndependentRefund
 	{
 		java.util.Date createDate = new java.util.Date(); 
 		String order_id = "Test"+createDate.getTime();
-		String store_id = "store5";
-		String api_token = "yesguy";
+		String store_id = "monca00597";
+		String api_token = "O27AbCbxQorPggMQe6hU";
 		String cust_id = "my customer id";
 		String amount = "20.00";
 		String pan = "4242424242424242";

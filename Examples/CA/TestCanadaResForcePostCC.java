@@ -27,6 +27,10 @@ public class TestCanadaResForcePostCC
 		resForcePostCC.setAuthCode(auth_code);
 		resForcePostCC.setCryptType(crypt_type);
 		resForcePostCC.setDynamicDescriptor(descriptor);
+
+		//NT Response Option
+		boolean get_nt_response = true;
+		resForcePostCC.setGetNtResponse(get_nt_response);
 		
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);
@@ -69,6 +73,16 @@ public class TestCanadaResForcePostCC
 			System.out.println("Avs Street Name = " + receipt.getResAvsStreetName());
 			System.out.println("Avs Zipcode = " + receipt.getResAvsZipcode());
 			System.out.println("IssuerId = " + receipt.getIssuerId());
+			System.out.println("SourcePanLast4 = " + receipt.getSourcePanLast4());
+
+			if(get_nt_response) {
+				System.out.println("\nNTResponseCode = " + receipt.getNTResponseCode());
+				System.out.println("NTMessage = " + receipt.getNTMessage());
+				System.out.println("NTUsed = " + receipt.getNTUsed());
+				System.out.println("NTTokenBin = " + receipt.getNTTokenBin());
+				System.out.println("NTTokenLast4 = " + receipt.getNTTokenLast4());
+				System.out.println("NTTokenExpDate = " + receipt.getNTTokenExpDate());
+			}
 		}
 		catch (Exception e)
 		{

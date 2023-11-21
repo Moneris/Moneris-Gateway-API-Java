@@ -24,6 +24,10 @@ public class TestCanadaResIndRefundCC
 		resIndRefundCC.setCryptType(crypt_type);
 		resIndRefundCC.setDataKey(data_key);
 
+		//NT Response Option
+		boolean get_nt_response = true;
+		resIndRefundCC.setGetNtResponse(get_nt_response);
+
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);
 		mpgReq.setTestMode(true); //false or comment out this line for production transactions
@@ -64,6 +68,16 @@ public class TestCanadaResIndRefundCC
 			System.out.println("Avs Street Number = " + receipt.getResAvsStreetNumber());
 			System.out.println("Avs Street Name = " + receipt.getResAvsStreetName());
 			System.out.println("Avs Zipcode = " + receipt.getResAvsZipcode());
+			System.out.println("SourcePanLast4 = " + receipt.getSourcePanLast4());
+
+			if(get_nt_response) {
+				System.out.println("\nNTResponseCode = " + receipt.getNTResponseCode());
+				System.out.println("NTMessage = " + receipt.getNTMessage());
+				System.out.println("NTUsed = " + receipt.getNTUsed());
+				System.out.println("NTTokenBin = " + receipt.getNTTokenBin());
+				System.out.println("NTTokenLast4 = " + receipt.getNTTokenLast4());
+				System.out.println("NTTokenExpDate = " + receipt.getNTTokenExpDate());
+			}
 		}
 		catch (Exception e)
 		{

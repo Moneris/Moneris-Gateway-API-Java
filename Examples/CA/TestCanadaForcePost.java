@@ -28,7 +28,7 @@ public class TestCanadaForcePost
 		forcepost.setExpdate(expdate);
 		forcepost.setAuthCode(auth_code);
 		forcepost.setCryptType(crypt);
-		forcepost.setDynamicDescriptor(dynamic_descriptor);		
+		forcepost.setDynamicDescriptor(dynamic_descriptor);
 		
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);

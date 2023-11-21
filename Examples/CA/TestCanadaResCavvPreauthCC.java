@@ -97,10 +97,12 @@ public class TestCanadaResCavvPreauthCC
 			System.out.println("SourcePanLast4 = " + receipt.getSourcePanLast4());
 
 			if(get_nt_response) {
-				System.out.println("NTResponseCode = " + receipt.getNTResponseCode());
+				System.out.println("\nNTResponseCode = " + receipt.getNTResponseCode());
 				System.out.println("NTMessage = " + receipt.getNTMessage());
 				System.out.println("NTUsed = " + receipt.getNTUsed());
-				System.out.println("NTMaskedToken = " + receipt.getNTMaskedToken());
+				System.out.println("NTTokenBin = " + receipt.getNTTokenBin());
+				System.out.println("NTTokenLast4 = " + receipt.getNTTokenLast4());
+				System.out.println("NTTokenExpDate = " + receipt.getNTTokenExpDate());
 			}
 
 			// InstallmentResults installmentResults = receipt.getInstallmentResults();

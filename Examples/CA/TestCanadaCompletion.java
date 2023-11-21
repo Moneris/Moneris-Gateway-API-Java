@@ -8,9 +8,9 @@ public class TestCanadaCompletion
 	{
 		String store_id = "store5";
 		String api_token = "yesguy";
-		String order_id = "Test1471032121580";
-		String amount = "2.00";
-		String txn_number = "115309-0_10";
+		String order_id = "Test1683565649745";
+		String amount = "12.00";
+		String txn_number = "85401-0_473";
 		String crypt = "7";
 		String cust_id = "my customer id";
 		String dynamic_descriptor = "my descriptor";
@@ -27,7 +27,12 @@ public class TestCanadaCompletion
 		completion.setDynamicDescriptor(dynamic_descriptor);
 		//completion.setShipIndicator(ship_indicator); //optional
 
-
+		//Optional
+		InstallmentInfo installmentInfo = new InstallmentInfo();
+		installmentInfo.setPlanId("ae859ef1-eb91-b708-8b80-1dd481746401");
+		installmentInfo.setPlanIdRef("0000000065");
+		installmentInfo.setTacVersion("2");
+		completion.setInstallmentInfo(installmentInfo);
 
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);

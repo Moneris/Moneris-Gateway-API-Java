@@ -22,6 +22,12 @@ public class TestCanadaPurchaseCorrection
 		purchasecorrection.setDynamicDescriptor(dynamic_descriptor);
 		purchasecorrection.setCustId("my customer id");
 
+		//Optional
+		InstallmentInfo installmentInfo = new InstallmentInfo();
+		installmentInfo.setPlanId("ae859ef1-eb91-b708-8b80-1dd481746401");
+		installmentInfo.setPlanIdRef("0000000065");
+		installmentInfo.setTacVersion("2");
+		//purchasecorrection.setInstallmentInfo(installmentInfo);
 
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);

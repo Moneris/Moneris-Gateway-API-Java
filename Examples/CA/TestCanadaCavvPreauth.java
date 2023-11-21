@@ -6,13 +6,13 @@ public class TestCanadaCavvPreauth
 {
 	public static void main(String[] args)
 	{
-		String store_id = "store5";
-		String api_token = "yesguy";
+		String store_id = "monca00544";
+		String api_token = "5JLbUfpl9JsQzPmbyje7";
 		java.util.Date createDate = new java.util.Date(); 
 		String order_id = "Test"+createDate.getTime();
 		String cust_id = "CUS887H67";
-		String amount = "10.42";
-		String pan = "5204240750750692";
+		String amount = "10.00";
+		String pan = "5454545454545454";
 		String expdate = "2301"; //YYMM
 		String cavv = "AAABBJg0VhI0VniQEjRWAAAAAAA=";
 		String dynamic_descriptor = "123456";
@@ -20,6 +20,7 @@ public class TestCanadaCavvPreauth
 		String crypt_type = "5";
 		String ds_trans_id = "12345";
 		boolean status_check = false;
+		boolean foreign_indicator= true; //New Foreign Indicator field
 
 		CavvPreAuth cavvPreauth = new CavvPreAuth();
 		cavvPreauth.setOrderId(order_id);
@@ -48,6 +49,7 @@ public class TestCanadaCavvPreauth
 		cof.setIssuerId("139X3130ASCXAS9"); 
 		
 		cavvPreauth.setCofInfo(cof);
+		cavvPreauth.setForeignIndicator(foreign_indicator);
 		
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);
