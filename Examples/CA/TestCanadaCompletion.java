@@ -6,11 +6,11 @@ public class TestCanadaCompletion
 {
 	public static void main(String[] args)
 	{
-		String store_id = "store5";
-		String api_token = "yesguy";
-		String order_id = "Test1683565649745";
-		String amount = "12.00";
-		String txn_number = "85401-0_473";
+		String store_id = "monca03650";
+		String api_token = "7Yw0MPTlhjBRcZiE6837";
+		String order_id = "Test1658162313235";
+		String amount = "2.00";
+		String txn_number = "6932-0_213";
 		String crypt = "7";
 		String cust_id = "my customer id";
 		String dynamic_descriptor = "my descriptor";
