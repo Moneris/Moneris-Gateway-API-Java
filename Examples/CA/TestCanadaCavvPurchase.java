@@ -6,8 +6,8 @@ public class TestCanadaCavvPurchase
 {
 	public static void main(String[] args)
 	{
-		String store_id = "store5";
-		String api_token = "yesguy";
+		String store_id = "monca00544";
+		String api_token = "5JLbUfpl9JsQzPmbyje7";
 		java.util.Date createDate = new java.util.Date();
 		String order_id = "Test"+createDate.getTime();
 		String cust_id = "CUS887H67";
@@ -20,6 +20,7 @@ public class TestCanadaCavvPurchase
 		String crypt_type = "5";
 		String ds_trans_id = "12345";
 		boolean status_check = false;
+		boolean foreign_indicator= true; //New Foreign Indicator field
 
 		CavvPurchase cavvPurchase = new CavvPurchase();
 		cavvPurchase.setOrderId(order_id);
@@ -42,6 +43,8 @@ public class TestCanadaCavvPurchase
 		// TrId and TokenCryptogram are optional, refer documentation for more details.
 		cavvPurchase.setTrId("50189815682");
 		cavvPurchase.setTokenCryptogram("APmbM/411e0uAAH+s6xMAAADFA==");
+		cavvPurchase.setForeignIndicator(foreign_indicator);
+
 
 		//optional - Credential on File details
 		CofInfo cof = new CofInfo();
@@ -59,6 +62,7 @@ public class TestCanadaCavvPurchase
 		mpgReq.setTransaction(cavvPurchase);
 		mpgReq.setStatusCheck(status_check);
 		mpgReq.send();
+
 
 		try
 		{
