@@ -18,6 +18,7 @@ public class TestCanadaResCavvPreauthCC
 		String expdate = "2301";
 		String ds_trans_id = "F38E6948-5388-41A6-BCA4-B49723C19437";
 		boolean status_check = false;
+		boolean is_incremental = true;
 
 		ResCavvPreauthCC resCavvPreauthCC = new ResCavvPreauthCC();
 		resCavvPreauthCC.setOrderId(order_id);
@@ -26,6 +27,7 @@ public class TestCanadaResCavvPreauthCC
 		resCavvPreauthCC.setAmount(amount);
 		resCavvPreauthCC.setCavv(cavv);
 		resCavvPreauthCC.setExpDate(expdate);
+		resCavvPreauthCC.setIs_incremental(is_incremental);
 
 		//NT Response Option
 		boolean get_nt_response = true;

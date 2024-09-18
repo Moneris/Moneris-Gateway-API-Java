@@ -7,11 +7,14 @@ public class TestCanadaPurchase
 	{
 		java.util.Date createDate = new java.util.Date(); 
 		String order_id = "Test"+createDate.getTime();
-		String store_id = "monca00544";
-		String api_token = "5JLbUfpl9JsQzPmbyje7";
-		String amount = "16.00";
+
+
+		String store_id = "monca03650";
+		String api_token = "7Yw0MPTlhjBRcZiE6837";          
+		String amount = "4822.0";
 		String pan = "5454545454545454";
-		String expdate = "2412"; //YYMM
+		String expdate = "2212"; //YYMM
+
 		String crypt = "7";
 		String processing_country_code = "CA";
 		boolean foreign_indicator= true; //New Foreign Indicator field
@@ -33,11 +36,19 @@ public class TestCanadaPurchase
 		//purchase.setTokenCryptogram("APmbM/411e0uAAH+s6xMAAADFA==");
 
 		//optional - Installment Info
+
 //		 InstallmentInfo installmentInfo = new InstallmentInfo();
 //		 installmentInfo.setPlanId("ae859ef1-eb91-b708-8b80-1dd481746401");
 //		 installmentInfo.setPlanIdRef("0000000065");
 //		 installmentInfo.setTacVersion("2");
 //		 purchase.setInstallmentInfo(installmentInfo);
+
+		 InstallmentInfo installmentInfo = new InstallmentInfo();
+		 installmentInfo.setPlanId("130d93f9-8a5d-a78c-4741-14905057ce01");
+		 installmentInfo.setPlanIdRef("0000000063");
+		 installmentInfo.setTacVersion("6");
+		 //purchase.setInstallmentInfo(installmentInfo);
+
 
 		//optional - Credential on File details
 		CofInfo cof = new CofInfo();
@@ -87,6 +98,7 @@ public class TestCanadaPurchase
 			System.out.println("HostId = " + receipt.getHostId());
 			System.out.println("IssuerId = " + receipt.getIssuerId());
 			System.out.println("SourcePanLast4 = " + receipt.getSourcePanLast4());
+			System.out.println("Advice Code= "+ receipt.getAdviceCode());
 
 			// InstallmentResults installmentResults = receipt.getInstallmentResults();
 

@@ -6,18 +6,22 @@ public class TestCanadaPreauth
 {
 	public static void main(String[] args)
 	{
-		String store_id = "store5";
-		String api_token = "yesguy";
+
+
+
+		String store_id = "monca03650";
+		String api_token = "7Yw0MPTlhjBRcZiE6837";
 		java.util.Date createDate = new java.util.Date(); 
 		String order_id = "Test"+createDate.getTime();
-		String amount = "22.00";
+		String amount = "20.00";
 		String pan = "5454545454545454";
-		String expdate = "2312"; //YYMM
+		String expdate = "2212"; //YYMM
+
 		String crypt = "7";
 		String processing_country_code = "CA";
 		boolean foreign_indicator= false;
 		boolean status_check = false;
-		boolean is_incremental = false;
+		boolean is_incremental = true;
 
 		PreAuth preauth = new PreAuth();
 		preauth.setOrderId(order_id);
@@ -86,6 +90,7 @@ public class TestCanadaPreauth
 			//System.out.println("StatusMessage = " + receipt.getStatusMessage());
 			System.out.println("IssuerId = " + receipt.getIssuerId());
 			System.out.println("SourcePanLast4 = " + receipt.getSourcePanLast4());
+			System.out.println("Advice Code= "+ receipt.getAdviceCode());
 
 			// InstallmentResults installmentResults = receipt.getInstallmentResults();
 

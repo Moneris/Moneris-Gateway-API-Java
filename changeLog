@@ -1,3 +1,15 @@
+Version 1.0.40:
+    -Added GooglePay Token Temp Add and GooglePay Token Purchase/Preauth requests
+
+Version 1.0.39:
+    -Added phone and browser ip fields to MpiThreeDSAuthentication Request
+
+Version 1.0.38:
+    -Added Incremental Auth and 3DS2.2 functionality
+
+Version 1.0.37:
+	-Added foreign  Indicator to Preauth, Cavv Preauth , purcahse, Cavv purchase.
+
 Version 1.0.36:
 	-Added NT to the ResIndependentRefund and ResForcePost transactions.
 

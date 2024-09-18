@@ -8,8 +8,8 @@ public class TestCanadaResPreauthCC
 	{
 		java.util.Date createDate = new java.util.Date(); 
 		String order_id = "Test"+createDate.getTime();
-		String store_id = "monca00597";
-		String api_token = "O27AbCbxQorPggMQe6hU";
+		String store_id = "monca03650";
+		String api_token = "7Yw0MPTlhjBRcZiE6837";
 		String data_key = "4HIme0ZGURXE3NRBXHUj6nSc4";
 		String amount = "4.00";
 		String cust_id = "customer1"; //if sent will be submitted, otherwise cust_id from profile will be used
@@ -18,6 +18,7 @@ public class TestCanadaResPreauthCC
 		String processing_country_code = "CA";
 		String expdate = "2301"; //For Temp Token
 		boolean status_check = false;
+		boolean is_incremental = true;
 
 		ResPreauthCC resPreauthCC = new ResPreauthCC();
 		resPreauthCC.setDataKey(data_key);
@@ -27,6 +28,7 @@ public class TestCanadaResPreauthCC
 		resPreauthCC.setCryptType(crypt_type);
 		resPreauthCC.setDynamicDescriptor(dynamic_descriptor);
 		resPreauthCC.setExpDate(expdate);  //Temp Tokens only
+		resPreauthCC.setIs_incremental(is_incremental);
 
 		//NT Response Option
 		boolean get_nt_response = true;

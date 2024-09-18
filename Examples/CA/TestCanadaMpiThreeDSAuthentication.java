@@ -34,6 +34,7 @@ public class TestCanadaMpiThreeDSAuthentication
         mpiThreeDSAuthentication.setBrowserScreenHeight("1000"); //(pixel height of cardholder screen)
         mpiThreeDSAuthentication.setBrowserScreenWidth("1920"); //(pixel width of cardholder screen)
         mpiThreeDSAuthentication.setBrowserLanguage("en-GB"); //(defined by IETF BCP47)
+		mpiThreeDSAuthentication.setBrowserIP("127.0.0.1");
         
         //Optional Methods
         mpiThreeDSAuthentication.setBillAddress1("3300 Bloor St W");
@@ -66,6 +67,27 @@ public class TestCanadaMpiThreeDSAuthentication
 //		priorParams.put("prior_request_auth_timestamp","202308151640");
 //		PriorAuthenticationInfo pai = new PriorAuthenticationInfo(priorParams);
 //		mpiThreeDSAuthentication.setPriorRequestAuthInfo(pai);
+//
+//		Hashtable<String, String> workPhoneParams = new Hashtable<>();
+//		workPhoneParams.put("cc", "1");
+//		workPhoneParams.put("subscriber", "1111111111");
+//		WorkPhone workPhone = new WorkPhone(workPhoneParams);
+//		mpiThreeDSAuthentication.setWorkPhone(workPhone);
+//
+//
+//		Hashtable<String, String> mobilePhoneParams = new Hashtable<>();
+//		mobilePhoneParams.put("cc", "2");
+//		mobilePhoneParams.put("subscriber", "2222222222");
+//		MobilePhone mobilePhone = new MobilePhone(mobilePhoneParams);
+//		mpiThreeDSAuthentication.setMobilePhone(mobilePhone);
+//
+//
+//		Hashtable<String, String> homePhoneParams = new Hashtable<>();
+//		homePhoneParams.put("cc", "3");
+//		homePhoneParams.put("subscriber", "3333333333");
+//		HomePhone homePhone = new HomePhone(homePhoneParams);
+//		mpiThreeDSAuthentication.setHomePhone(homePhone);
+
 
 		//************************OPTIONAL VARIABLES***************************
 
@@ -75,7 +97,6 @@ public class TestCanadaMpiThreeDSAuthentication
 		mpgReq.setStoreId(store_id);
 		mpgReq.setApiToken(api_token);
 		mpgReq.setTransaction(mpiThreeDSAuthentication);
-		System.out.println(mpiThreeDSAuthentication.toXML());
 		mpgReq.send();
 
 		/**********************   REQUEST  ************************/
