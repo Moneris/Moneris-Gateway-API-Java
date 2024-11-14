@@ -7,14 +7,11 @@ public class TestCanadaPurchase
 	{
 		java.util.Date createDate = new java.util.Date(); 
 		String order_id = "Test"+createDate.getTime();
-
-
-		String store_id = "monca03650";
-		String api_token = "7Yw0MPTlhjBRcZiE6837";          
-		String amount = "4822.0";
+		String store_id = "monca00544";
+		String api_token = "5JLbUfpl9JsQzPmbyje7";
+		String amount = "16.00";
 		String pan = "5454545454545454";
-		String expdate = "2212"; //YYMM
-
+		String expdate = "2412"; //YYMM
 		String crypt = "7";
 		String processing_country_code = "CA";
 		boolean foreign_indicator= true; //New Foreign Indicator field

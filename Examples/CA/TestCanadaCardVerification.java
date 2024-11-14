@@ -6,11 +6,11 @@ public class TestCanadaCardVerification
 {
 	public static void main(String[] args)
 	{
-		String store_id = "store5";
-		String api_token = "yesguy";
+		String store_id = "monca02932";
+		String api_token = "CG8kYzGgzVU5z23irgMx";
 		java.util.Date createDate = new java.util.Date();
 		String order_id = "Test"+createDate.getTime();
-		String pan = "5204240750750692";
+		String pan = "4761349999000039";
 		String expdate = "2301"; //YYMM
 		String crypt = "7";
 		String processing_country_code = "CA";
@@ -45,6 +45,17 @@ public class TestCanadaCardVerification
 		
 		cardVerification.setCofInfo(cof);
 
+		//AccountyNameVerification
+		AccountNameVerification anf = new AccountNameVerification();
+		anf.setFirstName("FIRST");
+		anf.setMiddleName("MIDDLE");
+		anf.setLastName("LAST");
+
+		cardVerification.setAccountNameVerification(anf);
+
+		System.out.println(anf.toXML().toString());
+		System.out.println(cardVerification.toXML().toString());
+
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);
 		mpgReq.setTestMode(true); //false or comment out this line for production transactions
@@ -77,6 +88,7 @@ public class TestCanadaCardVerification
 			System.out.println("IsVisaDebit = " + receipt.getIsVisaDebit());
 			System.out.println("IssuerId = " + receipt.getIssuerId());
 			System.out.println("SourcePanLast4 = " + receipt.getSourcePanLast4());
+			System.out.println("AccountNameVerificationResult = " + receipt.getAccountNameVerificationResult());
 		}
 		catch (Exception e)
 		{
