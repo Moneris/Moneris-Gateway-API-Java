@@ -6,10 +6,10 @@ public class TestCanadaResTokenizeCC
 {
 	public static void main(String[] args)
 	{
-		String store_id = "moneris";
-		String api_token = "hurgle";
-		String order_id = "mvt3212954335";
-		String txn_number = "199999-0_10";
+		String store_id = "monca00544";
+		String api_token = "5JLbUfpl9JsQzPmbyje7";
+		String order_id = "Test1737561056105";
+		String txn_number = "5354-0_1023";
 		String phone = "0000000000";
 		String email = "bob@smith.com";
 		String note = "my note";
@@ -37,7 +37,7 @@ public class TestCanadaResTokenizeCC
 		resTokenizeCC.setAvsInfo(avsCheck);
 		resTokenizeCC.setCofInfo(cof);
 		//resTokenizeCC.setDataKeyFormat(data_key_format); //optional
-		
+		resTokenizeCC.setReturnIssuerId(false);
 
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);
@@ -73,6 +73,7 @@ public class TestCanadaResTokenizeCC
 			System.out.println("Avs Street Number = " + receipt.getResAvsStreetNumber());
 			System.out.println("Avs Street Name = " + receipt.getResAvsStreetName());
 			System.out.println("Avs Zipcode = " + receipt.getResAvsZipcode());
+			System.out.println("IssuerId = " + receipt.getIssuerId());
 		}
 		catch (Exception e)
 		{

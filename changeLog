@@ -1,3 +1,5 @@
+Version 1.0.44:
+    -Added return_issuer_id to res_tokenize_cc
 Version 1.0.40:
     -Added GooglePay Token Temp Add and GooglePay Token Purchase/Preauth requests
 
