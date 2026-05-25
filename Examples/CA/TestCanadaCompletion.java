@@ -34,11 +34,18 @@ public class TestCanadaCompletion
 		installmentInfo.setTacVersion("2");
 		completion.setInstallmentInfo(installmentInfo);
 
-
-		//optional - Surcharge details
-		SurchargeInfo surchargeInfo = new SurchargeInfo();
-		surchargeInfo.setSurchargeAmount("1.00");
-		completion.setSurchargeInfo(surchargeInfo);
+		PBBInfo pbbInfo= new PBBInfo();
+		String consentId="1b5ee10a-5356-4a71-b2cf-874ab134661f";
+		String cryptogram="eyJraWQiOiJpZGlyZWN0LXRva2VuLWp3cy0wMDEiLCJhbGciOiJFUzI1NiJ9..0I37qRcPh0lzhTupEwGgkqE_6PD6Nv6UOe37lUlStg0oH6ELp67BLHg8T8HzEwMWxVXk8qvISYvCu3XwNw_ADg";
+		String cryptogramExpiry= "2024-08-28T17:54:48.000Z";
+		String paymentMethod ="BANK_ACCOUNT_CHEQUING";
+		String channel="DESKTOP_WEB";
+		pbbInfo.setConsentId(consentId);
+		pbbInfo.setCryptogram(cryptogram);
+		pbbInfo.setCryptogramExpiry(cryptogramExpiry);
+		pbbInfo.setPaymentMethod(paymentMethod);
+		pbbInfo.setchannel(channel);
+		completion.setPbbInfo(pbbInfo);
 
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);

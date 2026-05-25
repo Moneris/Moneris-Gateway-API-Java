@@ -33,10 +33,14 @@ public class TestCanadaRefund
 		//refund.setInstallmentInfo(installmentInfo);
 
 
-		//optional - Surcharge details
-		SurchargeInfo surchargeInfo = new SurchargeInfo();
-		surchargeInfo.setSurchargeAmount("1.00");
-		refund.setSurchargeInfo(surchargeInfo);
+		PBBInfo pbbInfo= new PBBInfo();
+		String consentId="1b5ee10a-5356-4a71-b2cf-874ab134661f";
+		String lifeCycleTraceId= "A1x7ecRv1YSTEAx";
+		String channel="DESKTOP_WEB";
+		pbbInfo.setConsentId(consentId);
+		pbbInfo.setLifeCycleTraceId(lifeCycleTraceId);
+		pbbInfo.setchannel(channel);
+		refund.setPbbInfo(pbbInfo);
 
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);
@@ -45,6 +49,7 @@ public class TestCanadaRefund
 		mpgReq.setApiToken(api_token);
 		mpgReq.setTransaction(refund);
 		mpgReq.setStatusCheck(status_check);
+		System.out.println(mpgReq.toXML());
 		mpgReq.send();
 
 		try

@@ -7,11 +7,13 @@ public class TestCanadaPurchase
 	{
 		java.util.Date createDate = new java.util.Date(); 
 		String order_id = "Test"+createDate.getTime();
-		String store_id = "monca00544";
-		String api_token = "5JLbUfpl9JsQzPmbyje7";
-		String amount = "50.00";
-		String pan = "5454545454545454";
-		String expdate = "2412"; //YYMM
+
+		String store_id = "monca03650";
+		String api_token = "7Yw0MPTlhjBRcZiE6837";          
+		String amount = "21.0";
+		String pan = "9123010613796934361";
+		String expdate = "0128"; //YYMM
+
 		String crypt = "7";
 		String processing_country_code = "CA";
 		boolean foreign_indicator= true; //New Foreign Indicator field
@@ -54,11 +56,19 @@ public class TestCanadaPurchase
 		cof.setIssuerId("168451306048014"); 
 		purchase.setCofInfo(cof);
 
-		//optional - Surcharge details
-		SurchargeInfo surchargeInfo = new SurchargeInfo();
-		surchargeInfo.setSurchargeAmount("1.00");
-		purchase.setSurchargeInfo(surchargeInfo);
-		
+		PBBInfo pbbInfo= new PBBInfo();
+		String consentId="b52a7af4-4b2c-4b23-b039-246b0fd6e780";
+		String cryptogram="eyJraWQiOiJpZGlyZWN0LXRva2VuLWp3cy0wMDEiLCJhbGciOiJFUzI1NiJ9..NW8LGFae_MOTKNZbIVYh1aYnZLYBRExkY43CpDWzxYBo2495cekTJsOyL7YviheCz1p_U5zgCor2pQ8n4RDD5w";
+		String cryptogramExpiry= "2025-12-04T04:22:20.000Z";
+		String paymentMethod ="BANK_ACCOUNT_CHEQUING";
+		String channel="DESKTOP_WEB";
+		pbbInfo.setConsentId(consentId);
+		pbbInfo.setCryptogram(cryptogram);
+		pbbInfo.setCryptogramExpiry(cryptogramExpiry);
+		pbbInfo.setPaymentMethod(paymentMethod);
+		pbbInfo.setchannel(channel);
+		purchase.setPbbInfo(pbbInfo);
+
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);
 
@@ -101,6 +111,7 @@ public class TestCanadaPurchase
 			System.out.println("IssuerId = " + receipt.getIssuerId());
 			System.out.println("SourcePanLast4 = " + receipt.getSourcePanLast4());
 			System.out.println("Advice Code= "+ receipt.getAdviceCode());
+			System.out.println("PBBLifeCycleTraceId= "+ receipt.getPBBLifeCycleTraceId());
 
 			// InstallmentResults installmentResults = receipt.getInstallmentResults();
 

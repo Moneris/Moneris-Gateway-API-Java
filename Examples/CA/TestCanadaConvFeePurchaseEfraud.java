@@ -54,6 +54,7 @@ public class TestCanadaConvFeePurchaseEfraud
 		mpgReq.setApiToken(api_token);
 		mpgReq.setTransaction(purchase);
 		mpgReq.send();
+		System.out.println(mpgReq.toXML());
 
 		try
 		{

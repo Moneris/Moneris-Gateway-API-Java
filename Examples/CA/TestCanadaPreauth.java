@@ -7,18 +7,19 @@ public class TestCanadaPreauth
 	public static void main(String[] args)
 	{
 
-		String store_id = "moneris";
-		String api_token = "hurgle";
-		java.util.Date createDate = new java.util.Date(); 
+		String store_id = "monca03650";
+		String api_token = "7Yw0MPTlhjBRcZiE6837";
+		java.util.Date createDate = new java.util.Date();
 		String order_id = "Test"+createDate.getTime();
-		String amount = "50.00";
+		String amount = "20.00";
 		String pan = "5454545454545454";
-		String expdate = "2312"; //YYMM
+		String expdate = "2212"; //YYMM
+
 		String crypt = "7";
 		String processing_country_code = "CA";
 		boolean foreign_indicator= false;
 		boolean status_check = false;
-		boolean is_incremental = false;
+		boolean is_incremental = true;
 
 		PreAuth preauth = new PreAuth();
 		preauth.setOrderId(order_id);
@@ -55,6 +56,19 @@ public class TestCanadaPreauth
 		preauth.setSurchargeInfo(surchargeInfo);
 		
 		preauth.setCofInfo(cof);
+
+		PBBInfo pbbInfo= new PBBInfo();
+		String consentId="1b5ee10a-5356-4a71-b2cf-874ab134661f";
+		String cryptogram="eyJraWQiOiJpZGlyZWN0LXRva2VuLWp3cy0wMDEiLCJhbGciOiJFUzI1NiJ9..0I37qRcPh0lzhTupEwGgkqE_6PD6Nv6UOe37lUlStg0oH6ELp67BLHg8T8HzEwMWxVXk8qvISYvCu3XwNw_ADg";
+		String cryptogramExpiry= "2024-08-28T17:54:48.000Z";
+		String paymentMethod ="BANK_ACCOUNT_CHEQUING";
+		String channel="DESKTOP_WEB";
+		pbbInfo.setConsentId(consentId);
+		pbbInfo.setCryptogram(cryptogram);
+		pbbInfo.setCryptogramExpiry(cryptogramExpiry);
+		pbbInfo.setPaymentMethod(paymentMethod);
+		pbbInfo.setchannel(channel);
+		preauth.setPbbInfo(pbbInfo);
 
 		HttpsPostRequest mpgReq = new HttpsPostRequest();
 		mpgReq.setProcCountryCode(processing_country_code);
